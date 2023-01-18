@@ -1,0 +1,9 @@
+2022-12-13 18:08:44,395 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-13 18:08:50,825 - INFO - conftest.py - _element_visibility - MainThread: [启动APP的同意按钮]元素:[com.ximalaya.ting.kid:id/button_positive] 通过:[id]查找不可见，返回False !!
+2022-12-13 18:08:50,826 - INFO - conftest.py - _element_visibility - MainThread: [允许通知按钮] 元素在:[android]设备上为空！
+2022-12-13 18:08:50,826 - INFO - conftest.py - _element_visibility - MainThread: [banner跳过按钮] 元素在:[android]设备上为空！
+2022-12-13 18:08:57,537 - ERROR - conftest.py - _click_element - MainThread: [手机号输入框]元素:[com.ximalaya.ting.kid:id/et_txt] 通过:[id]没找到 !!
+2022-12-13 18:09:33,959 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-13 18:09:40,707 - INFO - conftest.py - _element_visibility - MainThread: [启动APP的同意按钮]元素:[com.ximalaya.ting.kid:id/button_positive] 通过:[id]查找不可见，返回False !!
+2022-12-13 18:09:40,707 - INFO - conftest.py - _element_visibility - MainThread: [允许通知按钮] 元素在:[android]设备上为空！
+2022-12-13 18:09:40,708 - INFO - conftest.py - _element_visibility - MainThread: [banner跳过按钮] 元素在:[android]设备上为空！

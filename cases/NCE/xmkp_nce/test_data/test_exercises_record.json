@@ -1,0 +1,25 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_exercises_record": [
+    {
+	"campRef": 1078,
+	"lessonRef": 1002,
+	"stepRef": 1005,
+	"exercisesRef": 1277,
+	"originAudioUrl": "http://aod.cos.tx.xmcdn.com/storages/af70-audiofreehighqps/FF/5A/CMCoOSUEKe15AADiXQCUJeWb.mp3",
+	"type": 1,
+	"text": "handbag",
+	"isCorrrect": 1,
+	"score": 92,
+	"audioUrl": "http://audiotest.cos.tx.xmcdn.com/storages/8fee-audiotest/2C/86/CAoVDwwEpcjbAABA3gAAO04b.mp3",
+	"duration": 4.1515,
+	"tryTimes": 1,
+	"doTimes": 2,
+	"isCompleted": 1,
+	"answerContent": "{\"score\":92,\"audioUrl\":\"http://audiotest.cos.tx.xmcdn.com/storages/8fee-audiotest/2C/86/CAoVDwwEpcjbAABA3gAAO04b.mp3\",\"duration\":4.1515,\"renderWords\":[[{\"value\":\"handbag\",\"score\":92.689442,\"pronaccuracy\":92.307365,\"profluency\":0.93580955,\"isDefault\":false}]],\"isAnswered\":true}"
+	}
+  ]
+}

@@ -1,0 +1,2 @@
+ONE_HUNDRED = 100
+SF = "SF"

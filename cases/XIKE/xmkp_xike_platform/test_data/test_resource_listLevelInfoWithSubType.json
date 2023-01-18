@@ -1,0 +1,29 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_resource_ListLevelInfoWithSubType_01": [
+    {
+	"subBusinessType": "0",
+	"businessType": "11"
+    }
+
+  ],"test_resource_ListLevelInfoWithSubType_02": [
+    {
+	"subBusinessType": "-1",
+	"businessType": "4"
+    }
+
+  ],"test_resource_ListLevelInfoWithSubType_03": [
+    {
+    "subBusinessType": "1",
+	"businessType": "1"
+    }
+  ],"test_resource_ListLevelInfoWithSubType_04": [
+    {
+	"subBusinessType": "100",
+	"businessType": "11"
+  }
+  ]
+}

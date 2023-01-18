@@ -1,0 +1,50 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_audioRecordR_star_0": [
+    {
+      "type": "SCORE",
+      "score": 90,
+      "retryTime": 2,
+      "bookId": "3013",
+      "pageId": 2513,
+      "audioRef":462,
+      "audioType": 1
+    }
+  ],
+  "test_audioRecordR_star_1": [
+    {
+      "type": "SCORE",
+      "score": 70,
+      "retryTime": 1,
+      "bookId": "3013",
+      "pageId": 2514,
+      "audioRef":634,
+      "audioType": 1
+    }
+  ],
+  "test_audioRecordR_star_2": [
+    {
+      "type": "SCORE",
+      "score": 40,
+      "retryTime": 1,
+      "bookId": "3013",
+      "pageId": 2536,
+      "audioRef":555,
+      "audioType": 1
+    }
+  ],
+  "test_audioRecordR_star_3": [
+    {
+      "type": "SCORE",
+      "score": 10,
+      "retryTime": 1,
+      "bookId": "3013",
+      "pageId":2537,
+      "audioRef":556,
+      "audioType": 1
+    }
+  ]
+}

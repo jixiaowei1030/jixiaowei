@@ -1,0 +1,11 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_gen_class_study_report": [
+    {
+      "classRef": 70727,
+      "comment":"test"
+    }
+  ]
+}

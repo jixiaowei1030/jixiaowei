@@ -1,0 +1,14 @@
+{
+  "setup_data": {
+      "mobile": "13150000012",
+      "password": "Jxw1994abc"
+  },
+  "test_receive_reward":  [
+    {
+      "test_receive_reward_01": {
+        "rewardType": 1
+      },
+      "uid": 1286193
+    }
+    ]
+}

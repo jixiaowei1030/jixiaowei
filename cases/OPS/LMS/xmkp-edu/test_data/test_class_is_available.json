@@ -1,0 +1,15 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_class_is_available_YES": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+    "test_class_is_available_NO": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ]
+}

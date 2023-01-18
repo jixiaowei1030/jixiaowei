@@ -1,0 +1,26 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_query_important_point": [
+    {
+      "casename": "正常获取本课重点",
+      "bookId": "BKWUT11111111",
+      "businessType": 4,
+      "chapterId": "BKWLS11111111",
+      "code": 0,
+      "empty": false,
+      "chapterImportantPoint": "语言类"
+    },
+    {
+      "casename": "bookid和chapterid不存在，返回本课重点为空",
+      "bookId": "BKWUT1111111122",
+      "businessType": 4,
+      "chapterId": "BKWLS1111111122",
+      "code": 0,
+      "empty": true,
+      "chapterImportantPoint": null
+    }
+  ]
+}

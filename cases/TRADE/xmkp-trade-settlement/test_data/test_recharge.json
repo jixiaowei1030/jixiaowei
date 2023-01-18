@@ -1,0 +1,30 @@
+{
+  "setup_data": {
+    "payload": {
+      "params": {
+        "group": "xmkp-trade-settlement-group",
+        "scope": "default",
+        "iface": "com.ximalaya.xmkp.trade.settlement.api.thrift.XmkpTradeSettlementCashBackService$Iface",
+        "artifactId": "xmkp-trade-settlement-api",
+        "method": "recharge",
+        "authAapplication": "",
+        "params": {
+          "rechargeDto": {
+            "realName": "",
+            "amount": "",
+            "userPhone": "",
+            "cardCode": "",
+            "businessId": "",
+            "cardType": 1,
+            "reqSource": "",
+            "userName": "",
+            "businessType": 22,
+            "userId": 1158218,
+            "reqId": ""
+          }
+        }
+      }
+    },
+    "test_recharge": []
+  }
+}

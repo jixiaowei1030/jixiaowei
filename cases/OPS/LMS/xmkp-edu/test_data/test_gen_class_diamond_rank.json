@@ -1,0 +1,8 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_gen_class_diamond_rank": [
+   {"classRefs":["70727"],"beginDate":"2021-05-01","endDate":"2021-06-30","opsId":"2096846"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_salary_list_experience": [
+    {
+      "timeStamp": 1603952870345,
+    "pageSize": 50,
+      "page": 1,
+      "teacherId": "1",
+      "campus": "体验营"
+    }
+  ],"test_salary_list_month": [
+    {
+      "timeStamp": 1603952870345,
+    "pageSize": 50,
+      "page": 1,
+      "teacherId": "1",
+      "campus": "月课"
+    }
+  ],"test_salary_list_long": [
+    {
+      "timeStamp": 1603952870345,
+    "pageSize": 50,
+      "page": 1,
+      "teacherId": "1",
+      "campus": "长期组"
+    }
+  ]
+}

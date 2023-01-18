@@ -1,0 +1,62 @@
+{
+  "setup_data": {
+    "mobile": "18921351052",
+    "password": "cyd129387"
+  },
+  "test_bck_wordRead_record1": [
+    {"recordType":"word",
+      "homeworkRef":1290,
+      "tryTimes":1,
+      "score":99.3135,
+      "audioUrl":"http://aod.cos.tx.xmcdn.com/storages/d9f7-audiofreehighqps/15/D5/CMCoOSEETvfnAACmAgCfP96S.wav",
+      "originAudioUrl":"",
+      "stepTypeStr":"homework",
+      "text":"pounds",
+      "stepRef":1451,
+      "campRef":"21",
+      "lessonRef":"256",
+      "productRef":1}
+  ],
+  "test_bck_wordRead_record2": [
+    {"recordType":"word",
+      "homeworkRef":1290,
+      "tryTimes":1,
+      "score":70,
+      "audioUrl":"http://aod.cos.tx.xmcdn.com/storages/d9f7-audiofreehighqps/15/D5/CMCoOSEETvfnAACmAgCfP96S.wav",
+      "originAudioUrl":"",
+      "stepTypeStr":"homework",
+      "text":"pounds",
+      "stepRef":1451,
+      "campRef":"21",
+      "lessonRef":"256",
+      "productRef":1}
+  ],
+  "test_bck_wordRead_record3": [
+    {"recordType":"word",
+      "homeworkRef":1290,
+      "tryTimes":1,
+      "score":50,
+      "audioUrl":"http://aod.cos.tx.xmcdn.com/storages/d9f7-audiofreehighqps/15/D5/CMCoOSEETvfnAACmAgCfP96S.wav",
+      "originAudioUrl":"",
+      "stepTypeStr":"homework",
+      "text":"pounds",
+      "stepRef":1451,
+      "campRef":"21",
+      "lessonRef":"256",
+      "productRef":1}
+  ],
+  "test_bck_wordRead_record4": [
+    {"recordType":"word",
+      "homeworkRef":1290,
+      "tryTimes":1,
+      "score":0,
+      "audioUrl":"http://aod.cos.tx.xmcdn.com/storages/d9f7-audiofreehighqps/15/D5/CMCoOSEETvfnAACmAgCfP96S.wav",
+      "originAudioUrl":"",
+      "stepTypeStr":"homework",
+      "text":"pounds",
+      "stepRef":1451,
+      "campRef":"21",
+      "lessonRef":"256",
+      "productRef":1}
+  ]
+}

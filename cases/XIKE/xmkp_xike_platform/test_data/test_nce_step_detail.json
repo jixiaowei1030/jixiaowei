@@ -1,0 +1,57 @@
+{
+  "setup_data": {
+    "mobile": "15618159999",
+    "password": "xima123456"
+  },
+  "test_nce_step_detail_01": [
+	  {
+		  "test_nce_step_detail_01_01":
+	  {
+		  "campId": 892,
+		  "stepId": "NCEPT6drf33vw",
+		  "startDate": "1656604800000",
+		  "requestType": 2,
+		  "source": 2
+	  }
+	  }
+  ],
+  "test_nce_step_detail_02": [
+	  {
+		  "test_nce_step_detail_02_01":
+		{
+		"campId": 892,
+		"stepId": "NCEPT6drf33vx",
+		"startDate": "1656604800000",
+		"requestType": 2,
+		"source": 2
+		}
+	  }
+  ],
+  	"test_nce_step_detail_03": [
+	  {
+		  "test_nce_step_detail_03_01":
+	  {
+		  "campId": 892,
+		  "lessonId": "NCELS6drf33v1",
+		  "stepId": "NCEPT6drf33vy",
+		  "stepType": "3",
+		  "stepTitle": "巩固练习",
+		  "startDate": "1656604800000",
+		  "requestType": 2,
+		  "source": 2
+	  	}
+	  }
+  ],
+	"test_nce_step_detail_04": [
+	  {
+		  "test_nce_step_detail_04_01":
+		 {
+		"campId": 892,
+		"startDate": "1656604800000",
+		"stepId": "NCEPT6drf33w0",
+		"requestType": 2,
+		"source": 2
+		}
+	  }
+  ]
+}

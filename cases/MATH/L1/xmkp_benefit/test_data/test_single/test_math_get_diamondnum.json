@@ -1,0 +1,16 @@
+{
+  "setup_data": {
+      "mobile": "15600000000",
+      "password": "xmly123456"
+  },
+  "test_math_get_diamondnum": [
+    {
+      "albumId": "1230454",
+      "lessonId": "8087552822529556480",
+      "practiceId": "1367904872882176",
+      "practiceSeq": "1367897151737856",
+      "uniqueNo": "1624518098396",
+      "case_name": "获取钻石数量检查"
+    }
+  ]
+}

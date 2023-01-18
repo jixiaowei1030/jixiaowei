@@ -1,0 +1,13 @@
+{
+  "setup_data": {
+      "mobile": "15600000000",
+      "password": "xmly123456"
+  },
+  "test_math_querylesson_practicelist": [
+    {
+      "albumId": "1230454",
+      "lessonId": "8087552822529556480",
+      "case_name":"课程练习列表检查"
+    }
+  ]
+}

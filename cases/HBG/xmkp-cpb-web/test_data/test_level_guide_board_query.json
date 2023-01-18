@@ -1,0 +1,16 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_level_guide_board_query_1": [
+    {
+      "type": 1
+    }
+  ],
+  "test_level_guide_board_query_2": [
+    {
+      "type": 2
+    }
+  ]
+}

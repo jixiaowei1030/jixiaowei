@@ -1,0 +1,14 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_formal_lesson_page": [
+     {
+  "campId": 24150,
+  "bookType": "1",
+  "pageNum": 1,
+  "pageSize": 10
+  }
+  ]
+}

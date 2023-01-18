@@ -1,0 +1,448 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_editClassInfo_success": [
+    {"req_new_class":
+                    {
+                      "mobile": "leslie",
+                      "password":"kafka",
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大23",
+              "headTeacher": "12333",
+              "teacherId": 1109,
+              "studentNumLimit": 1,
+              "teacherMessageUrl": "0",
+              "location": "??",
+              "teacherMobile": 0,
+              "tagDeleteDays": 5,
+              "classTypeRef": 1,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg",
+              "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+             "className": "山东师大23"
+               }
+            }
+    },
+
+
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大",
+              "headTeacher": "12333",
+              "teacherId": 1109,
+              "studentNumLimit": 1,
+              "teacherMessageUrl": "0",
+              "location": "??",
+              "teacherMobile": 0,
+              "tagDeleteDays": 5,
+              "classTypeRef": 2,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg",
+              "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+             "classTypeRef": 2
+              }
+            }
+    },
+
+
+
+
+
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大",
+              "headTeacher": "12333",
+              "teacherId": 1109,
+              "studentNumLimit": 1,
+              "teacherMessageUrl": "0",
+              "location": "??",
+              "teacherMobile": 0,
+              "tagDeleteDays": 5,
+              "classTypeRef": 1,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg",
+              "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+             "classTypeRef": 1
+              }
+            }
+    },
+
+
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大",
+              "headTeacher": "12333",
+              "teacherId": 1109,
+              "studentNumLimit": 1111,
+              "teacherMessageUrl": "0",
+              "location": "??",
+              "teacherMobile": 0,
+              "tagDeleteDays": 5,
+              "classTypeRef": 1,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg",
+              "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+             "studentNumLimit": 1111
+              }
+            }
+    },
+
+
+
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大",
+              "headTeacher": "欠欠",
+              "teacherRealname":"欠欠",
+              "teacherId": 23248,
+              "studentNumLimit": 1111,
+              "teacherMessageUrl": "http://audiotest.cos.tx.xmcdn.com",
+              "location": "西安",
+              "teacherMobile": 0,
+              "tagDeleteDays": 5,
+              "classTypeRef": 1,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://audiotest.cos.tx.xmcdn.com/storages/f094-audiotest/C5/AA/CAoVXrsEM2qcAAc0fwAAM7Tv.jpg",
+              "teacherQrCodeUrl": "http://audiotest.cos.tx.xmcdn.com/storages/ab3d-audiotest/18/6A/CAoVXoEERukHAAVuVgAANFCD.png",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+              "teacherId": 23248,
+                "headTeacher": "欠欠",
+              "teacherQrCodeUrl": "http://audiotest.cos.tx.xmcdn.com/storages/ab3d-audiotest/18/6A/CAoVXoEERukHAAVuVgAANFCD.png"
+              }
+            }
+    },
+
+
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_edit_class":{
+
+              "className": "山东师大",
+              "headTeacher": "欠欠",
+              "teacherRealname":"欠欠",
+              "teacherId": 23248,
+              "studentNumLimit": 1111,
+              "teacherMessageUrl": "http://audiotest.cos.tx.xmcdn.com",
+              "location": "西安",
+              "teacherMobile": 17902232180,
+              "tagDeleteDays": 5,
+              "classTypeRef": 1,
+              "parallelClassGroupRef": 0,
+              "semesterRef": 2543,
+              "teacherPictureUrl": "http://audiotest.cos.tx.xmcdn.com/storages/f094-audiotest/C5/AA/CAoVXrsEM2qcAAc0fwAAM7Tv.jpg",
+              "teacherQrCodeUrl": "http://audiotest.cos.tx.xmcdn.com/storages/ab3d-audiotest/18/6A/CAoVXoEERukHAAVuVgAANFCD.png",
+              "studentNum": 0,
+              "isDefault": false,
+              "classTypeName": null,
+              "isBackup": true,
+              "aiSwitch": false,
+              "parallelClassSortId": 0,
+              "parallelClassMemberList": null
+          },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {
+              "location": "西安",
+              "teacherMobile": 17902232180
+              }
+            }
+    }
+
+  ]
+}

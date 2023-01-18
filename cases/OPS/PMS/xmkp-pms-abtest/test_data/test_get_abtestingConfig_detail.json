@@ -1,0 +1,52 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_abtestingConfig_detail_success": [{
+    "assert":{"response":
+        {"success":0,"code":0,"message":"success",
+          "data":{
+            "testingId": 246,
+
+            "testingName": "ab实验名称%s",
+            "systemName": "1",
+            "appId": null,
+            "businessType": "2",
+            "createSource": 0,
+
+
+            "testingScope": 0,
+            "mechanismUpdated": 4,
+            "notes": "5",
+            "createBy": "张国荣",
+            "updateBy": "张国荣",
+
+
+            "abtestGroups": [
+              {
+                  "testingGroupVersion": "88",
+                  "testingGroupName": "xm",
+                  "testingGroupRatio": null,
+                  "testingGroupValue": "qq",
+                  "isDefault": true
+              },
+              {
+                  "testingGroupVersion": "1",
+                  "testingGroupName": "111",
+                  "testingGroupRatio": 20,
+                  "testingGroupValue": "14",
+                  "isDefault": false
+              },
+              {
+                  "testingGroupVersion": "2",
+                  "testingGroupName": "222",
+                  "testingGroupRatio": 80,
+                  "testingGroupValue": "15",
+                  "isDefault": false
+              }
+          ]}
+          }
+    },
+                  "setup":{"query": "SELECT id FROM xmkp_pms_abtesting.ABTESTING where testing_name=\"ab实验名称%s\" "},
+                      "teardown": {"query":["delete from xmkp_pms_abtesting.ABTESTING where testing_code=%s;"]}
+  }]
+}

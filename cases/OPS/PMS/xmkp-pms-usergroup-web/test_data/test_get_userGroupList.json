@@ -1,0 +1,53 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_get_userGroup_by_page": [ {
+    "current": 1,
+    "pageSize": 20,
+    "pageNum": 1,
+    "response": {"data.len": 20,"data.pageNum": 1,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 10,
+    "pageNum": 1,
+    "response": {"data.len": 10,"data.pageNum": 1,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 5,
+    "pageNum": 1,
+    "response": {"data.len": 5,"data.pageNum": 1,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 50,
+    "pageNum": 1,
+    "response": {"data.len": 50,"data.pageNum": 1,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 100,
+    "pageNum": 1,
+    "response": {"data.len": 100,"data.pageNum": 1,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 10,
+    "pageNum": 2,
+    "response": {"data.len": 10,"data.pageNum": 2,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 20,
+    "pageNum": 3,
+    "response": {"data.len": 20,"data.pageNum": 3,"data.total": 100}
+  },
+    {
+    "current": 1,
+    "pageSize": 20,
+    "pageNum": 1000,
+    "response": {"data.len": 0,"data.pageNum": 1000,"data.total": 100}
+  }
+  ]
+}

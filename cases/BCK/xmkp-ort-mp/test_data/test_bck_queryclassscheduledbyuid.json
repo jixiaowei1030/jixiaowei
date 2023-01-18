@@ -1,0 +1,13 @@
+{
+  "setup_data": {
+    "mobile": "18921351052",
+    "password": "cyd129387"
+  },
+  "test_query_class_scheduled_by_uid": [
+    {
+
+      "pageSize": 9,
+      "sort": 1
+    }
+  ]
+}

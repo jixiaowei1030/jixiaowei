@@ -1,0 +1,157 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_delClass_success": [
+    {"req_new_class":
+                    {
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 2,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": "????"
+            },
+    "setup":
+            {
+              "query": ""
+            },
+    "teardown":
+              {
+                "query": [
+                ]
+              }
+    },
+
+
+
+
+
+
+
+    {"req_new_class":{
+                      "id": 0,
+                      "classNo": null,
+                      "className": "山东师大",
+                      "headTeacher": "12333",
+                      "teacherId": 1109,
+                      "studentNumLimit": 1,
+                      "teacherMessageUrl": "0",
+                      "location": "??",
+                      "teacherMobile": "",
+                      "tagDeleteDays": 5,
+                      "classTypeRef": 1,
+                      "parallelClassGroupRef": 0,
+                      "teacherRealname": "王卫振",
+                      "teacherQrCodeUrl": "http://fdfs1.test.ximalaya.com/storages/f1aa-audiotest/27/62/CAoVQAkDdWYcAAb6_AAAJr9W.jpg",
+                      "teacherPictureUrl": "http://fdfs1.test.ximalaya.com/storages/a421-audiotest/82/56/CAoVQAkDdWYjAAb6_AAAJr9X.jpg"
+                    },
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": "????"
+            },
+    "setup":
+            {
+              "query": ""
+            },
+    "teardown":
+              {
+                "query": [
+                ]
+              }
+    }
+
+  ],
+  "test_delClass_not_exist_ClassId":[
+
+    {
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+      "classId": "2131312",
+      "assert":
+            {
+              "response": {"data": null,
+                           "displayMessage": "generic exception, please contact admin",
+                           "errorCode": -1,
+                           "messageKey": null,
+                           "technialMessage": null}
+            }
+    }
+  ]
+}

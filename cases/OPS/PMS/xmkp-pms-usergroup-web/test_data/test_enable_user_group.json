@@ -1,0 +1,30 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_enable_user_group_success": [
+
+      {
+      "business": 2,
+      "groupName": "新概念分群名称",
+      "rule": {
+        "labels": [
+            {
+                "key": "last_subscribe_days",
+                "operator": ">",
+                "values": [
+                    123
+                ]
+            }
+        ],
+        "logic": "and"
+      },
+      "assert":{"response": {"success": 0, "code": 0, "message": "success", "data": null}
+
+       },
+        "setup":{"mobile": "leslie","password":"kafka",
+          "query": "SELECT id  FROM xmkp_usergroup.USER_GROUP where group_name=\"新概念分群名称%s\" "},
+        "teardown": {"query":["delete  from xmkp_usergroup.OPERATION_LOG where dml_table_record_id=%s;",
+                    "delete from xmkp_usergroup.USER_GROUP where id=%s;"]}
+    }
+  ]
+}

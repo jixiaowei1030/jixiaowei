@@ -1,0 +1,44 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_camp_businesstype_one": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_two": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_four": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_six": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_eight": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_nine": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_ten": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ],
+  "test_camp_businesstype_eleven": [
+    {
+      "timeStamp": 1611314311128
+    }
+  ]
+}

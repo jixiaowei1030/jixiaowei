@@ -1,0 +1,10 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_user_detail_info": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ]
+}

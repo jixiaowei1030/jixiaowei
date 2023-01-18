@@ -1,0 +1,11 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka",
+    "ruid": 110000631,
+    "room_id": 460810
+  },
+  "test_lesson_list": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ]
+}

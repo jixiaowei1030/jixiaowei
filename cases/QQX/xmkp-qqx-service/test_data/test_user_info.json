@@ -1,0 +1,15 @@
+{
+  "setup_data": {
+    "mobile": "18056548888",
+    "password": "zxc123456"
+  },
+  "test_update_user_info": [
+    {
+      "userInfoShow": false,
+      "birthday": "2018-05-01",
+      "userSex": "boy",
+      "nickname": "测试宝宝👶",
+      "babyHeaderUrl": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3355464299,584008140&fm=26&gp=0.jpg"
+    }
+  ]
+}

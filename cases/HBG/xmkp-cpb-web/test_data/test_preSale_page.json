@@ -1,0 +1,26 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_preSale_page_1": [
+    {
+      "typeId": 1
+    }
+  ],
+    "test_preSale_page_2": [
+    {
+      "typeId": 2
+    }
+  ],
+    "test_preSale_page_3": [
+    {
+      "typeId": 3
+    }
+  ],
+    "test_preSale_page_4": [
+    {
+      "typeId": 4
+    }
+  ]
+}

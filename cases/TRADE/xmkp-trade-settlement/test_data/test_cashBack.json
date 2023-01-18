@@ -1,0 +1,35 @@
+{
+  "setup_data": {
+    "payload": {
+      "params": {
+        "group": "xmkp-trade-settlement-group",
+        "scope": "default",
+        "iface": "com.ximalaya.xmkp.trade.settlement.api.thrift.XmkpTradeSettlementCashBackService$Iface",
+        "artifactId": "xmkp-trade-settlement-api",
+        "method": "cashBack",
+        "authAapplication": "",
+        "params": {
+          "cachBackRequest": {
+            "amount": "",
+            "aliPayAccount": "",
+            "aliIdentityTypeId": 1,
+            "openId": "",
+            "userPhone": "",
+            "ip": "",
+            "businessId": "",
+            "remark": "",
+            "userName": "",
+            "xiDianBusAccId": "",
+            "userId": 1158426,
+            "reqId": "",
+            "realName": "",
+            "payType": 4,
+            "reqSource": "",
+            "businessType": 22
+          }
+        }
+      }
+    },
+    "test_cashBack": []
+  }
+}

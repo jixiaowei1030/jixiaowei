@@ -1,0 +1,17 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_monthly_class_users": [
+    {
+      "classId":1210,
+      "currentPage":1,
+      "pageSize":300,
+      "searchContent":"",
+      "hasFugou":"",
+      "notDakaDay":"",
+      "studyDay":"",
+      "studyStatus":""
+    }
+  ]
+}

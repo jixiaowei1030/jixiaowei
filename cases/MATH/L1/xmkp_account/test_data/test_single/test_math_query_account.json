@@ -1,0 +1,10 @@
+{
+  "setup_data": {
+        "mobile": "15600000000",
+        "password": "xmly123456"
+  },
+  "test_math_get_diamondnum": [
+    {
+    }
+  ]
+}

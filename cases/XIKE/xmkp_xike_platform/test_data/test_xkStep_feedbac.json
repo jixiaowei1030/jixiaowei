@@ -1,0 +1,24 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_xkStep_feedback_01":  [
+    {
+      "casename": "新概念环节反馈知识点非空",
+      "campId": "24150",
+      "chapterId": "1002",
+      "stepId": "1054",
+      "businessType": 11
+    }
+    ],
+  "test_xkStep_feedback_02":  [
+    {
+      "casename": "新概念环节反馈知识点为空",
+      "campId": "24150",
+      "chapterId": "1006",
+      "stepId": "1025",
+      "businessType": 11
+        }
+    ]
+}

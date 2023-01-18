@@ -1,0 +1,14 @@
+{
+  "setup_data": {
+    "mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_class_list": [
+    {
+      "timeStamp": 1603952870345,
+      "page": 1,
+      "pageSize": 300,
+      "sum": 0
+    }
+  ]
+}

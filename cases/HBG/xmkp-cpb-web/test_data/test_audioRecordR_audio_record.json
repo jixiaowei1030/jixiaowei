@@ -1,0 +1,19 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_audioRecordR_audio_record_1": [
+    {
+        "bookId": "2867",
+        "pageId": 2438,
+        "audioRef": 244,
+        "text": "The Animal Party",
+        "duration": "2.425",
+        "audioId": 10484133020,
+        "audioUrl": "http://aod.cos.tx.xmcdn.com/storages/890a-audiofreehighqps/E1/26/CMCoOR8D1GufAAEsAgB7Nwf_.wav",
+        "score": 94.085556,
+        "detail": "[object Object]"
+    }
+  ]
+}

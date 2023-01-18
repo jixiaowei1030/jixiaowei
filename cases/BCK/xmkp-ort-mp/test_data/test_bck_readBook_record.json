@@ -1,0 +1,62 @@
+{
+  "setup_data": {
+	  "mobile": "18921351052",
+      "password": "cyd129387"
+  },
+  "test_bck_readBook_record1": [
+    {
+	"stepRef": 1452,
+	"lessonRef": 256,
+	"productRef": 1,
+	"campRef": "21",
+	"tryTimes": 0,
+	"score": 95.657585,
+	"audioUrl": "http://aod.cos.tx.xmcdn.com/storages/6f8c-audiofreehighqps/69/D0/CMCoOSUETwNLAAD2rgCfQn0P.wav",
+	"duration": "2",
+	"originAudioUrl": "http://fdfs1.test.ximalaya.com/storages/23a2-audiotest/5D/90/CAoVIMYDmoxxAAFA9wAAKiRL.m4a",
+	"dialogRef": 144,
+	"text": "come and look at this"
+}
+  ],
+  "test_bck_readBook_record2": [
+    {
+      "stepRef": 1452,
+      "lessonRef": 256,
+      "productRef": 1,
+      "campRef": "21",
+      "tryTimes": 0,
+      "score": 70,
+      "audioUrl": "http://aod.cos.tx.xmcdn.com/storages/6f8c-audiofreehighqps/69/D0/CMCoOSUETwNLAAD2rgCfQn0P.wav",
+      "duration": "2",
+      "originAudioUrl": "http://fdfs1.test.ximalaya.com/storages/23a2-audiotest/5D/90/CAoVIMYDmoxxAAFA9wAAKiRL.m4a",
+      "dialogRef": 144,
+      "text": "come and look at this"
+    }
+  ],
+  "test_bck_readBook_record3": [
+    {"stepRef": 1452,
+	"lessonRef": 256,
+	"productRef": 1,
+	"campRef": "21",
+	"tryTimes": 0,
+	"score": 50,
+	"audioUrl": "http://aod.cos.tx.xmcdn.com/storages/6f8c-audiofreehighqps/69/D0/CMCoOSUETwNLAAD2rgCfQn0P.wav",
+	"duration": "2",
+	"originAudioUrl": "http://fdfs1.test.ximalaya.com/storages/23a2-audiotest/5D/90/CAoVIMYDmoxxAAFA9wAAKiRL.m4a",
+	"dialogRef": 144,
+	"text": "come and look at this"}
+  ],
+  "test_bck_readBook_record4": [
+    {"stepRef": 1452,
+	"lessonRef": 256,
+	"productRef": 1,
+	"campRef": "21",
+	"tryTimes": 0,
+	"score": 0,
+	"audioUrl": "http://aod.cos.tx.xmcdn.com/storages/6f8c-audiofreehighqps/69/D0/CMCoOSUETwNLAAD2rgCfQn0P.wav",
+	"duration": "2",
+	"originAudioUrl": "http://fdfs1.test.ximalaya.com/storages/23a2-audiotest/5D/90/CAoVIMYDmoxxAAFA9wAAKiRL.m4a",
+	"dialogRef": 144,
+	"text": "come and look at this"}
+  ]
+}

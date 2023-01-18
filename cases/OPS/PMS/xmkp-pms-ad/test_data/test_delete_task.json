@@ -1,0 +1,13 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_delete_task_success": [{
+    "businessType": 1,
+    "encryptMethod": 1,
+    "remark": "测试测试",
+    "taskName": "测试测试",
+    "updateFrequency": 1,
+    "userGroupId": 542,
+    "vendorType": 2,
+    "assert":{"response": {"success": 0, "code": 0, "message": "success", "data": "操作成功"}}}]
+}

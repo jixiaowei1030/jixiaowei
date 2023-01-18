@@ -1,0 +1,22 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_resource_levelInfos_01": [
+    {
+      "businessType": 11
+    }
+
+  ],"test_resource_levelInfos_02": [
+    {
+      "businessType": 4
+    }
+
+  ],"test_resource_levelInfos_03": [
+    {
+      "businessType": 1
+    }
+
+  ]
+}

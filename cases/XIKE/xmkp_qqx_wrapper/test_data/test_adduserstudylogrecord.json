@@ -1,0 +1,42 @@
+{
+  "setup_data": {
+      "mobile": "17621818119",
+      "password": "xmly123456"
+  },
+  "test_bookworm_add_user_study_log_record": [
+    {
+      "logType": 0,
+      "studyTime": 3208,
+      "practiceId": "249dd3c30bbf11ecb810e4434bbd7ffc",
+      "stepId": "BKWPT11111118",
+	  "content": "https://qqx-app-1251952132.cos.ap-shanghai.myqcloud.com/qqx_prod/2021-10-09/1240093-record1633765231092.wav",
+      "contentLength": "4.67368745803833",
+      "bookId": "BKWUT11111111",
+      "result": 1,
+      "chapterId": "BKWLS11111112",
+      "startTime": 1633764435195,
+      "endTime": 1633767643093,
+      "selection": "",
+      "beAddPunchCardRecord": 0,
+      "casename": "新增学习记录"
+    }
+  ],
+  "test_bookworm_add_user_study_log_record_with_wrong_bookid": [
+    {
+      "logType": 0,
+      "studyTime": 3208,
+      "practiceId": "249dd3c30bbf11ecb810e4434bbd7ffc",
+      "stepId": "11111111",
+	  "content": "https://qqx-app-1251952132.cos.ap-shanghai.myqcloud.com/qqx_prod/2021-10-09/1240093-record1633765231092.wav",
+      "contentLength": "4.67368745803833",
+      "bookId": "BKWUT11111111",
+      "result": 1,
+      "chapterId": "BKWLS11111112",
+      "startTime": 1633764435195,
+      "endTime": 1633767643093,
+      "selection": "",
+      "beAddPunchCardRecord": 0,
+      "casename": "错误的bookid新增学习记录"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "setup_data": {
+    "mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_add_user_to_class": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_add_user_to_class_repeat": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_add_user_to_class_same": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_add_user_to_class_different_same": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_add_user_to_class_different_camp": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_add__class_different_business_type": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ]
+}

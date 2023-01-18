@@ -1,0 +1,71 @@
+2022-12-12 13:55:19,671 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-12-12 13:55:20,470 - INFO - conn.py - _execute - MainThread: select group_concat(camp_title) from xmkp_edu.EDU_CAMP as t left join xmkp_edu.EDU_CLASSMATE as k on t.id = k.camp_ref where k.user_id = 1160908
+2022-12-12 13:55:21,904 - INFO - conn.py - _execute - MainThread: select * from xmkp_nce.NCE_USER where user_id =1160908
+2022-12-12 13:55:21,969 - INFO - conn.py - _execute - MainThread: select group_concat(distinct(slave_id)) from xmkp_nce.NCE_TABLE_MAPPING as ntm left join xmkp_edu.EDU_CLASSMATE as ec on ntm.master_id = ec.`camp_ref` left join xmkp_nce.NCE_USER as nu on nu.user_id = ec.user_id where ntm.`is_deleted` = 0 and nu.user_id = 1160908
+2022-12-12 13:55:22,136 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:55:22,139 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:56:00,355 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-12-12 13:56:00,641 - INFO - conn.py - _execute - MainThread: select group_concat(camp_title) from xmkp_edu.EDU_CAMP as t left join xmkp_edu.EDU_CLASSMATE as k on t.id = k.camp_ref where k.user_id = 1160908
+2022-12-12 13:56:01,331 - INFO - conn.py - _execute - MainThread: select * from xmkp_nce.NCE_USER where user_id =1160908
+2022-12-12 13:56:01,377 - INFO - conn.py - _execute - MainThread: select group_concat(distinct(slave_id)) from xmkp_nce.NCE_TABLE_MAPPING as ntm left join xmkp_edu.EDU_CLASSMATE as ec on ntm.master_id = ec.`camp_ref` left join xmkp_nce.NCE_USER as nu on nu.user_id = ec.user_id where ntm.`is_deleted` = 0 and nu.user_id = 1160908
+2022-12-12 13:56:01,534 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:56:01,537 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:57:09,329 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-12-12 13:57:09,662 - INFO - conn.py - _execute - MainThread: select group_concat(camp_title) from xmkp_edu.EDU_CAMP as t left join xmkp_edu.EDU_CLASSMATE as k on t.id = k.camp_ref where k.user_id = 1160908
+2022-12-12 13:57:10,156 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.STUDY_EXERCISES_0 where camp_ref = 24150 and lesson_ref = 1002 and step_ref = 1005 and user_id = 1160908 
+2022-12-12 13:57:10,165 - INFO - conn.py - _execute - MainThread: DELETE FROM xmkp_nce.STUDY_EXERCISES_0 where exercises_ref= '5370' and user_id = '1160908' and lesson_ref = '1182' and camp_ref = '24150';
+2022-12-12 13:57:10,262 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,271 - INFO - conn.py - _execute - MainThread: DELETE FROM xmkp_nce.STUDY_EXERCISES_0 where exercises_ref= '5369' and user_id = '1160908' and lesson_ref = '1182' and camp_ref = '24150';
+2022-12-12 13:57:10,320 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,327 - INFO - conn.py - _execute - MainThread: DELETE FROM xmkp_nce.STUDY_EXERCISES_0 where exercises_ref= '5371' and user_id = '1160908' and lesson_ref = '1182' and step_ref = '1657' and camp_ref = '24150';
+2022-12-12 13:57:10,384 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,393 - INFO - conn.py - _execute - MainThread: DELETE FROM xmkp_nce.STUDY_EXERCISES_0 where exercises_ref= '5367' and user_id = '1160908' and lesson_ref = '1182' and step_ref = '1657' and camp_ref = '24150' ;
+2022-12-12 13:57:10,451 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,513 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,687 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,778 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:10,879 - INFO - conn.py - _execute - MainThread: SELECT SUM(gold) from xmkp_nce.NCE_GOLD_OBTAIN_DETAIL_0 where user_id = '1160908' and TO_DAYS(created_time) = TO_DAYS(NOW());
+2022-12-12 13:57:12,457 - INFO - conn.py - _execute - MainThread: select * from xmkp_nce.NCE_USER where user_id =1160908
+2022-12-12 13:57:12,554 - INFO - conn.py - _execute - MainThread: select group_concat(distinct(slave_id)) from xmkp_nce.NCE_TABLE_MAPPING as ntm left join xmkp_edu.EDU_CLASSMATE as ec on ntm.master_id = ec.`camp_ref` left join xmkp_nce.NCE_USER as nu on nu.user_id = ec.user_id where ntm.`is_deleted` = 0 and nu.user_id = 1160908
+2022-12-12 13:57:12,823 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:57:12,828 - INFO - conn.py - _execute - MainThread: select sum(duration) from xmkp_nce.NCE_STUDY_STEP_DURATION where user_id = 1160908 and study_step_id = 2150
+2022-12-12 13:57:12,923 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP where lesson_ref = '1211' and step_type= 1
+2022-12-12 13:57:13,679 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP where lesson_ref = '1211' and step_type= 2
+2022-12-12 13:57:13,717 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP where lesson_ref = '1211' and step_type= 3
+2022-12-12 13:57:13,754 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP where lesson_ref = '1211' and step_type= 4
+2022-12-12 13:57:13,788 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP where lesson_ref = '1211' and step_type= 5
+2022-12-12 13:57:13,814 - INFO - test_add_lessonSteps.py - teardown_class - MainThread: TestOPsAddLessonSteps
+2022-12-12 13:57:13,822 - INFO - conn.py - _execute - MainThread: delete  from xmkp_nce.NCE_KNOW_CARD where  title = 'afford的用法001' and lesson_id = 1211 
+2022-12-12 13:57:13,852 - INFO - conn.py - _execute - MainThread: delete  from xmkp_nce.NCE_KNOW_CARD where  title = 'nervous的用法001' and lesson_id = 1211 
+2022-12-12 13:57:13,894 - INFO - conn.py - _execute - MainThread: delete  from xmkp_nce.NCE_KNOW_CARD where  title = '前缀inter-的用法001' and lesson_id = 1211 
+2022-12-12 13:57:13,926 - INFO - conn.py - _execute - MainThread: delete  from xmkp_nce.NCE_KNOW_CARD where  title = '省略句子成分001' and lesson_id = 1211 
+2022-12-12 13:57:13,950 - INFO - test_add_lesson_knowcard.py - teardown_class - MainThread: TestOPSAddKnowCard
+2022-12-12 13:57:14,147 - INFO - test_add_step_homework.py - teardown_class - MainThread: TestOPSAddExcercises
+2022-12-12 13:57:14,170 - INFO - test_add_step_vedio.py - teardown_class - MainThread: TestOPSAddVedio
+2022-12-12 13:57:14,219 - INFO - conn.py - _execute - MainThread: select title from xmkp_text.ARTICLE_BASE where id = 10689  and is_deleted = 0
+2022-12-12 13:57:14,325 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_text.ARTICLE_BASE where is_deleted = 0 
+2022-12-12 13:57:14,404 - INFO - conn.py - _execute - MainThread: select is_deleted from xmkp_nce.NCE_BOOK  where  id = 10012
+2022-12-12 13:57:14,408 - INFO - conn.py - _execute - MainThread: update xmkp_nce.NCE_BOOK set is_deleted = '0'  where  id = 10012
+2022-12-12 13:57:14,444 - INFO - conn.py - _execute - MainThread: select is_deleted from xmkp_nce.NCE_BOOK  where  id = 100121
+2022-12-12 13:57:14,476 - INFO - conn.py - _execute - MainThread: select title from xmkp_nce.NCE_BOOK  where id = '10000'
+2022-12-12 13:57:14,533 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_BOOK where is_deleted = 0
+2022-12-12 13:57:14,567 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_BOOK  where book_type='4' and title='新概念@第四册' and subtitle='NCE-4th' and experience_lesson_total='22' and experience_course_target='第四册，体验课学习目标！！！！' and share_title='测试' and share_subtitle = '222222222' and formal_lesson_total=33 and formal_course_target='第四册，正式课学习目标。' and enable =1 and cover_url='http://audiotest.cos.tx.xmcdn.com/storages/5f85-audiotest/16/9B/CAoVDwwEtELCAAGg4gAARPlR.png' and id = 10010
+2022-12-12 13:57:14,577 - INFO - conn.py - _execute - MainThread: delete from  xmkp_nce.NCE_LESSON_CAMP_RELATION  where camp_ref = 24150 and lesson_ref = 150
+2022-12-12 13:57:14,640 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_LESSON_CAMP_RELATION where camp_ref = 24150 and lesson_ref = 150 and is_deleted = 0
+2022-12-12 13:57:15,779 - INFO - conn.py - _execute - MainThread: select count(*),extent_json from xmkp_nce.NCE_TABLE_MAPPING where master_id =1004 and slave_id= 147 and is_deleted = 0 
+2022-12-12 13:57:15,793 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_TABLE_MAPPING where master_id =1004 and slave_id= 147 and is_deleted = 0 
+2022-12-12 13:57:16,014 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_LESSON where title = 'Good news001-自动化测试专用勿动' and book_type = 1 
+2022-12-12 13:57:16,146 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_LESSON where title = 'cyd阶段测试002' and book_type = 1 
+2022-12-12 13:57:16,236 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_LESSON where title = 'Good news001复习课-自动化测试专用勿动' and book_type = 4 
+2022-12-12 13:57:16,291 - INFO - test_create_lesson.py - teardown_class - MainThread: TestOPsCreateLesson
+2022-12-12 13:57:16,917 - INFO - test_lesson_step_list.py - teardown_class - MainThread: TestOPsLessonStepList
+2022-12-12 13:57:16,958 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_LESSON_CAMP_RELATION where camp_ref = '345' and is_deleted = 0
+2022-12-12 13:57:16,988 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_LESSON_CAMP_RELATION where camp_ref = '999' and is_deleted = 0
+2022-12-12 13:57:17,021 - INFO - test_search_lesson.py - teardown_class - MainThread: TestOPsSearchLesson
+2022-12-12 13:57:17,102 - INFO - conn.py - _execute - MainThread: replace INTO `xmkp_nce`.`NCE_STEP_TIME_POINT`(`id`, `lesson_id`, `step_id`, `step_type`, `time`, `remark`, `is_deleted`, `created_user`, `created_time`, `updated_user`, `updated_time`) VALUES (10090, 1002, 1003, 1, 660000, NULL, 0, '1: 张国荣', '2021-12-30 09:55:41', NULL, NULL);
+2022-12-12 13:57:17,145 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_STEP_TIME_POINT where id = 10090 and is_deleted = 0  
+2022-12-12 13:57:17,205 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP_TIME_POINT where step_id = 1003 and time = 366000 
+2022-12-12 13:57:17,237 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_STEP_TIME_POINT where step_id = 1003 and time = 366000
+2022-12-12 13:57:17,300 - INFO - conn.py - _execute - MainThread: delete from xmkp_nce.NCE_STEP_TIME_POINT where step_id = 1003 and time = 14000 and remark = 1
+2022-12-12 13:57:17,341 - INFO - conn.py - _execute - MainThread: select count(*) from xmkp_nce.NCE_STEP_TIME_POINT where step_id = 1003 and time = 14000  and remark = 1
+2022-12-12 13:57:17,347 - INFO - conn.py - _execute - MainThread: replace INTO `xmkp_nce`.`NCE_STEP_TIME_POINT`(`id`, `lesson_id`, `step_id`, `step_type`, `time`, `remark`, `is_deleted`, `created_user`, `created_time`, `updated_user`, `updated_time`) VALUES (10082, 1002, 1003, 1, 376000, NULL, 0, '1: 张国荣', '2021-12-29 09:58:45', NULL, NULL); 

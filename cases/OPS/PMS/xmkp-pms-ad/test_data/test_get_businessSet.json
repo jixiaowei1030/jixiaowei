@@ -1,0 +1,5 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_businessSet_success": [{
+    "assert":{"response": {"success": 0, "code": 0, "message": "success", "data": {"1": "牛津树"}}}}]}

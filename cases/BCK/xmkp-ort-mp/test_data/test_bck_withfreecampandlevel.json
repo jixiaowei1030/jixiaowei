@@ -1,0 +1,13 @@
+{
+  "setup_data": {
+    "mobile": "18921351052",
+    "password": "cyd129387"
+  },
+  "test_camp_with_free_camp_and_level": [
+    {
+      "pageNum": 1,
+      "pageSize": 20,
+      "productId": 1
+    }
+  ]
+}

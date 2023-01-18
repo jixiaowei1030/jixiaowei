@@ -1,0 +1,16 @@
+{
+  "setup_data": {
+      "mobile": "15600000000",
+      "password": "xmly123456"
+  },
+  "test_math_practicelog_record": [
+    {
+      "userId": 200837,
+      "albumId": "1230454",
+      "lessonId": "8087552822529556480",
+      "practiceId": "1367904872882176",
+      "uniqueNo": "1624521612342",
+      "case_name": "阶段学习日志记录检查"
+    }
+  ]
+}

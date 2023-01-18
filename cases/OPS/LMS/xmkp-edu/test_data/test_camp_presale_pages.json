@@ -1,0 +1,19 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka",
+    "ruid": 110000631,
+    "room_id": 460810
+  },
+    "test_presale_pages_list_one": [
+    {
+      "currentPage": 1,
+      "pageSize": 50
+    }
+  ],
+    "test_presale_pages_list_two": [
+    {
+      "currentPage": 1,
+      "pageSize": 50
+    }
+  ]
+}

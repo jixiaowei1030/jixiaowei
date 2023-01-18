@@ -1,0 +1,21 @@
+{
+  "setup_data": {
+    "payload": {
+      "params": {
+        "group": "xmkp-trade-order",
+        "scope": "default",
+        "iface": "com.ximalaya.xmkp.trade.order.api.thrift.TTradeOrderService$Iface",
+        "artifactId": "xmkp-trade-order-business-api",
+        "method": "getSubTradeOrderListByOrderIds",
+        "authAapplication": "",
+        "params": {
+          "req": {
+            "orderIdList": [],
+            "source": ""
+          }
+        }
+      }
+    }
+  },
+  "test_getSubTradeOrderListByOrderIds": []
+}

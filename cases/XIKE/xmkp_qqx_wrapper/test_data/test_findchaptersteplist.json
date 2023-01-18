@@ -1,0 +1,30 @@
+{
+  "setup_data": {
+      "mobile": "17621818119",
+      "password": "xmly123456"
+  },
+  "test_bookworm_find_chapter_steplist": [
+    {
+      "chapterId": "BKWLS6dvf31md",
+      "casename": "根据章节id获取环节列表"
+     }
+  ],
+  "test_bookworm_find_chapter_steplist_with_wrong_chapter": [
+    {
+      "chapterId": "1111111111111111",
+      "casename": "根据错误章节id获取环节列表"
+     }
+  ],
+    "test_bookworm_find_chapter_steplist_with_empty_string": [
+    {
+      "chapterId": "",
+      "casename": "章节id为空"
+     }
+  ],
+    "test_bookworm_find_chapter_steplist_with_int_stepid": [
+    {
+      "chapterId": 1111111111111111,
+      "casename": "章节id为数字"
+     }
+  ]
+}

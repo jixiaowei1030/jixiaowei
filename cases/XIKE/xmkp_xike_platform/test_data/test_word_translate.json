@@ -1,0 +1,17 @@
+{
+  "setup_data": {
+    "mobile": "15618159999",
+    "password": "xima123456"
+  },
+  "test_word_translate": [
+    {
+      "word": "come"
+    },
+    {
+      "word": "can't"
+    },
+    {
+      "word": "kick-off"
+    }
+  ]
+}

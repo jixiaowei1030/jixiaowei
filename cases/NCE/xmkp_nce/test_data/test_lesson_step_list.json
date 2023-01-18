@@ -1,0 +1,18 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_lesson_step_list": [
+    {
+	"campId": 1078,
+	"lessonId": 1002
+}
+  ],
+  "test_lesson_step_list_2": [
+    {
+	"campId": 24150,
+	"lessonId": 1009
+}
+  ]
+}

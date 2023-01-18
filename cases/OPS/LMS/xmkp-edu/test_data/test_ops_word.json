@@ -1,0 +1,17 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_ops_word": [
+    {
+      "timeStamp": 1618469289020,
+      "lessonId": 50
+    }
+  ],
+  "test_ops_word_fail": [
+    {
+      "timeStamp": 1618469289020,
+      "lessonId": 49
+    }
+  ]
+}

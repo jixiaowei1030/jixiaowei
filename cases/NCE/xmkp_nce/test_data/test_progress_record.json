@@ -1,0 +1,23 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_progress_record": [
+    {
+      "studyStepId": 2150,
+      "bpType": 1,
+      "status": 0,
+      "breakpoint": 45.296
+}
+  ],
+  "test_progress_record_2": [
+      {
+        "studyStepId": 2093,
+        "bpType": 2,
+        "status": 0,
+        "breakpoint": 1,
+        "bpExerciseId": 569
+ }
+	]
+}

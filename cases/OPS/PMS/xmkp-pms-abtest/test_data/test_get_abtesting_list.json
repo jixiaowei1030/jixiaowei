@@ -1,0 +1,27 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_get_abTesting_by_page": [ {
+    "page": 1,
+    "pageSize": 20,
+    "status": 2,
+    "response": {"message": "success"}
+  },{
+    "page": 1,
+    "pageSize": 20,
+    "status": 3,
+    "response": {"message": "success"}
+  },{
+    "page": 1,
+    "pageSize": 20,
+    "status": 4,
+    "response": {"message": "success"}
+  },{
+    "page": 1,
+    "pageSize": 20,
+    "status": 1,
+    "response": {"message": "success"}
+  }
+
+  ]
+}

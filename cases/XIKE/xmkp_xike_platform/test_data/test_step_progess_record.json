@@ -1,0 +1,19 @@
+{
+  "setup_data": {
+    "mobile": "15705101127",
+    "password": "Jxw1994abc"
+  },
+  "test_step_progess_record_01": [
+	  {
+		  "test_step_progess_record_01_01":
+		  {
+		"studyStepId": 9217,
+		"status": 1,
+		"bpType": 1,
+		"breakpoint": 0,
+		"requestType": 2,
+		"source": 2
+	}
+	  }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_systemNames_list_success": [{
+    "assert":{"response":
+        {"success":0,"code":0,"message":"success","data":["绘本馆","牛津树"]
+
+        }
+    }}
+    ]}

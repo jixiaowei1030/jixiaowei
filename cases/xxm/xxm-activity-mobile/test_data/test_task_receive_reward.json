@@ -1,0 +1,17 @@
+{
+  "setup_data": {
+      "mobile": "13150000012",
+      "password": "Jxw1994abc"
+  },
+  "test_task_receive_reward":  [
+    {
+      "test_task_receive_reward_01":
+      {
+        "type": 1,
+        "taskId": 1
+      },
+      "uid":  1286193
+    }
+
+    ]
+}

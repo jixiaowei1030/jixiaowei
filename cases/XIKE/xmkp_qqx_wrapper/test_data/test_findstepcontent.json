@@ -1,0 +1,30 @@
+{
+  "setup_data": {
+      "mobile": "17621818119",
+      "password": "xmly123456"
+  },
+  "test_bookworm_find_step_content": [
+    {
+      "stepId": "BKWPT6dvf31m9",
+      "casename": "根据环节id获取内容"
+     }
+  ],
+    "test_bookworm_find_step_content_with_wrong_stepId": [
+    {
+      "stepId": "1111111122223333334444444",
+      "casename": "根据错误的环节id获取内容"
+     }
+  ],
+      "test_bookworm_find_step_content_with_empty_string": [
+    {
+      "stepId": "",
+      "casename": "环节id为空字符串"
+     }
+  ],
+      "test_bookworm_find_step_content_with_int_stepid": [
+    {
+      "stepId": 123,
+      "casename": "环节id为数字"
+     }
+  ]
+}

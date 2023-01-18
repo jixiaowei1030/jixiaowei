@@ -1,0 +1,29 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_user_list_by_mobile": [
+    {
+      "timeStamp": 1603952870345,
+      "mobile": "15618382663",
+      "uid": "",
+      "tradeOrderNo": ""
+    }
+  ],
+    "test_user_list_by_uid": [
+    {
+      "timeStamp": 1603952870345,
+      "mobile": "",
+      "uid": "347184",
+      "tradeOrderNo": ""
+    }
+  ],
+    "test_user_list_by_order_no": [
+    {
+      "timeStamp": 1603952870345,
+      "mobile": "",
+      "uid": "",
+      "tradeOrderNo": "202011244001184000003112469"
+    }
+  ]
+}

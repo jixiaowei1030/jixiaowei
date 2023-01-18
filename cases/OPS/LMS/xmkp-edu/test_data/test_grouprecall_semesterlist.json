@@ -1,0 +1,24 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka",
+    "ruid": 110000631,
+    "room_id": 460810
+  },
+  "test_grouprecall_semester_list": [
+    {
+      "timeStamp": 1603952870345,
+      "pageSize": 50,
+      "page": 1
+
+    }
+  ],
+  "test_grouprecall_semester_list_ONE": [
+    {
+      "timeStamp": 1603952870345,
+      "pageSize": 50,
+      "page": 1,
+      "semesterId": 2164
+
+    }
+  ]
+}

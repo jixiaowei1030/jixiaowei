@@ -1,0 +1,19 @@
+{
+  "setup_data": {
+	  "mobile": "17602163851",
+	  "password": "asdf3.14"
+  },
+  "test_exercise_audio_record": [
+    {
+      "bookId": "2867",
+      "exerciseRef": 82,
+      "text": "monster11111",
+      "duration": "3.148",
+      "audioId": 1,
+      "studyNumber": 22,
+      "audioUrl": "http://aod.cos.tx.xmcdn.com/storages/a074-audiofreehighqps/AB/70/CMCoOSYD1G7_AAF3AgB7N_Gr.wav",
+      "score": 92.90383,
+      "detail": ""
+    }
+  ]
+}

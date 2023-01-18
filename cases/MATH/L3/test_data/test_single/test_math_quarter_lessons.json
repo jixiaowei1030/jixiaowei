@@ -1,0 +1,11 @@
+{
+  "setup_data": {
+    "mobile": "13310155819",
+    "password": "123456l"
+  },
+  "test_math_quarter_lessons": [
+    {
+      "quarterId": 3
+    }
+  ]
+}

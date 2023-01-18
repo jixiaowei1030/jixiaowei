@@ -1,0 +1,16 @@
+{
+  "setup_data": {
+    "mobile": "13310155819",
+    "password": "123456l"
+  },
+  "test_math_phase_getreport": [
+    {
+      "qNum": 1,
+      "casename": "第一季度阶段学习报告"
+    },
+    {
+      "qNum": 2,
+      "casename": "第二季度阶段学习报告"
+    }
+  ]
+}

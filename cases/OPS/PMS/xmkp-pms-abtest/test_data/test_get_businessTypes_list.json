@@ -1,0 +1,9 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_businessTypes_list_success": [{
+    "assert":{"response": {"success":0,"code":0,"message":"success","data":["海报页","栏目"]}}
+
+
+    }
+    ]}

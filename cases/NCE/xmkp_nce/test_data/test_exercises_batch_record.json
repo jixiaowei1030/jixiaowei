@@ -1,0 +1,20 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_exercises_batch_record": [
+     {
+  "batchId": 10756,
+  "exerId": 569,
+  "exerIndex": 1,
+  "isAnswered": true,
+  "isCorrect": false,
+  "isCompleted": true,
+  "score": 0,
+  "doTimes": 1,
+  "tryTimes": 1,
+  "answerContent": "{\"score\":0,\"audioUrl\":\"http://audiotest.cos.tx.xmcdn.com/storages/b181-audiotest/A8/73/CAoVDwwEpfJGAAAgTgAAO1XF.mp3\",\"duration\":2.0675,\"renderWords\":[[{\"value\":\"地区稳定\",\"score\":0,\"pronaccuracy\":0,\"profluency\":0,\"isDefault\":true}],[{\"value\":\"请问地区稳定\",\"score\":0,\"pronaccuracy\":0,\"profluency\":0,\"isDefault\":true}],[{\"value\":\"请问地区稳定\",\"score\":0,\"pronaccuracy\":0,\"profluency\":0,\"isDefault\":true}],[{\"value\":\"乔卫东乔卫东\",\"score\":0,\"pronaccuracy\":0,\"profluency\":0,\"isDefault\":true}]],\"isAnswered\":true}"
+ }
+  ]
+}

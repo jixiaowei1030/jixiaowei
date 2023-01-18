@@ -1,0 +1,31 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_presale_urls_1": [
+    {
+      "type": 1
+    }
+  ],
+  "test_presale_urls_2": [
+    {
+      "type": 2
+    }
+  ],
+  "test_presale_urls_3": [
+    {
+      "type": 3
+    }
+  ],
+  "test_presale_urls_4": [
+    {
+      "type": 4
+    }
+  ],
+  "test_presale_urls_5": [
+    {
+      "type": 5
+    }
+  ]
+}

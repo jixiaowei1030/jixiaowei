@@ -1,0 +1,35 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_change_user_to_new_class": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_change_user_to_same_class": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_change_user_to_new_class_again": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_change_user_to_new_class_limit": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_change_user_to_new_class_different_semester": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ],
+  "test_change_user_to_new_class_different_camp": [
+    {
+      "timeStamp": 1603952870345
+    }
+  ]
+}

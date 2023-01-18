@@ -1,0 +1,19 @@
+{
+  "setup_data": {
+    "payload": {
+      "params": {
+        "group": "xmkp-middle-logistics-web",
+        "scope": "default",
+        "iface": "com.ximalaya.xmkp.middle.logistics.api.thrift.TDispatchNoteService$Iface",
+        "artifactId": "xmkp-middle-logistics-api",
+        "method": "queryDispatchNotesByBusinessId",
+        "authAapplication": "",
+        "params": {
+          "businessId": "",
+          "businessType": 0
+        }
+      }
+    }
+  },
+  "test_queryDispatchNotesByBusinessId": []
+}

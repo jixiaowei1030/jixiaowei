@@ -1,0 +1,9 @@
+2022-11-17 15:49:59,576 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试开始----------
+2022-11-17 15:49:59,577 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-11-17 15:50:00,127 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试结束----------
+2022-11-17 15:50:14,582 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试开始----------
+2022-11-17 15:50:14,583 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-11-17 15:51:07,182 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试结束----------
+2022-11-17 15:51:10,356 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试开始----------
+2022-11-17 15:51:10,357 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-11-17 15:52:24,312 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试结束----------

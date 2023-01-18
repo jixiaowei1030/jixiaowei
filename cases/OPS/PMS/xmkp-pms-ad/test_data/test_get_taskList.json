@@ -1,0 +1,5 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_available_userGroups_success": [{
+    "assert":{"response": {"success":0,"code":0,"message":"success","data":{"542":"对接广点通测试分群_1"}}}}]}

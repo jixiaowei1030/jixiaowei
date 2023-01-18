@@ -1,0 +1,17 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_audioRecordR_exercise_star":[
+    {
+      "type": "SCORE",
+      "score": 92.90383,
+      "retryTime": 1,
+      "bookId": "2867",
+      "exerciseRef": 82,
+      "isRead": true,
+      "studyNumber": 22
+    }
+  ]
+}

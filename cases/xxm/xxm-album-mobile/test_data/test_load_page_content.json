@@ -1,0 +1,18 @@
+{
+  "setup_data": {
+      "mobile": "13150000012",
+      "password": "Jxw1994abc"
+  },
+  "test_load_page_content":  [
+    {
+      "test_load_page_content_01": {
+        "pageTitle": "jxw频道测试",
+        "ageGroupId": 12,
+        "babyId": "9778240001",
+        "currentPage": 1,
+        "pageId": 180,
+        "version": "3.7.0"
+      }
+    }
+    ]
+}

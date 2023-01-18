@@ -1,0 +1,21 @@
+{
+  "setup_data": {
+    "mobile": "13310155819",
+    "password": "123456l"
+  },
+  "test_math_studylog_report": [
+    {
+      "lessonId": 1,
+      "case_name": "第一周第一节学习报告检查"
+    },
+    {
+      "lessonId": 2,
+      "case_name": "第一周第二节学习报告检查"
+    },
+    {
+      "lessonId": 341,
+      "case_name": "课程ID不存在异常场景测试",
+      "status": 500
+    }
+  ]
+}

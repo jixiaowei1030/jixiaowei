@@ -1,0 +1,22 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_edit_task_success": [{
+    "new": {"businessType": 1,
+    "encryptMethod": 1,
+    "remark": "测试测试",
+    "taskName": "测试测试",
+    "updateFrequency": 1,
+    "userGroupId": 542,
+    "vendorType": 2
+    },
+    "businessType": 1,
+    "encryptMethod": 1,
+    "remark": "测试测试1",
+    "taskName": "测试测试2",
+    "updateFrequency": 1,
+    "userGroupId": 542,
+    "vendorType": 2,
+    "assert":{"response": {"success": 0, "code": 0, "message": "success", "data": "操作成功"}}
+       }]
+}

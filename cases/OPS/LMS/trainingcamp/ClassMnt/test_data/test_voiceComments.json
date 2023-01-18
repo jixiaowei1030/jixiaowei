@@ -1,0 +1,172 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_enable_voiceComments": [
+    {
+      "req_new_semester":
+                        { "mobile": "leslie",
+                          "password":"kafka",
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 100,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 2,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {"code":0,"message":"","data":"success"}
+            },
+    "setup":
+            {
+              "query": ""
+            },
+    "teardown":
+              {
+                "query": [
+                ]
+              }
+    },
+
+
+
+
+
+
+
+    {
+      "req_new_semester":
+                        {
+                        "id": 0,
+                        "campRef": 998,
+                        "semesterNo": "学期名称test5645B端",
+                        "startDate": "2021-08-20 00:00:00",
+                        "endDate": "2021-08-22 00:00:00",
+                        "saleDateRange": [
+                            "2021-05-29 00:00:00",
+                            "2021-05-30 23:59:59"
+                        ],
+                        "saleStartTime": "2021-05-29 00:00:00",
+                        "saleEndTime": "2021-05-30 23:59:59",
+                        "saleLimitNum": 0,
+                        "saleNum": 205,
+                        "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                        "activityId": "26",
+                        "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                        "shareType": 1,
+                        "businessType": "",
+                        "skuRef": "1012400005763601"
+                    },
+    "assert":
+            {
+              "response": {"code":0,"message":"","data":"success"}
+            },
+    "setup":
+            {
+              "query": ""
+            },
+    "teardown":
+              {
+                "query": [
+                ]
+              }
+    }
+
+  ],
+  "test_enable_voiceComments_repeat":[
+    {
+        "req_new_semester":
+                          {
+                          "id": 0,
+                          "campRef": 998,
+                          "semesterNo": "学期名称test5645B端",
+                          "startDate": "2021-08-20 00:00:00",
+                          "endDate": "2021-08-22 00:00:00",
+                          "saleDateRange": [
+                              "2021-05-29 00:00:00",
+                              "2021-05-30 23:59:59"
+                          ],
+                          "saleStartTime": "2021-05-29 00:00:00",
+                          "saleEndTime": "2021-05-30 23:59:59",
+                          "saleLimitNum": 0,
+                          "saleNum": 205,
+                          "shareQrCode": "http://fdfs.xmcdn.com/group69/M0B/D2/33/wKgMb13Tlwzg1usjAAsOh0nvNlQ703.jpg",
+                          "activityId": "26",
+                          "copywriting": "{\"1\":\"每天读懂1本牛津树原版绘本\",\"2\":\"长按识别二维码立即体验\"}",
+                          "shareType": 1,
+                          "businessType": "",
+                          "skuRef": "1012400005763601"
+                      },
+      "assert":
+              {
+                "response": {"code":0,"message":"","data":"success"}
+              },
+      "setup":
+              {
+                "query": ""
+              },
+      "teardown":
+                {
+                  "query": [
+                  ]
+                }
+      }
+
+],
+
+
+  "test_voiceComments_verify_params":[
+    {
+      "param": "",
+      "assert":
+              {
+                "response": {"code":0,"message":"","data":"success"}
+              }
+      },
+    {
+      "param": "中文",
+      "assert":
+              {
+                "response": {"data": null,
+                             "displayMessage": "generic exception, please contact admin",
+                             "errorCode": -1,
+                             "messageKey": null,
+                             "technialMessage": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"中文\""}
+              }
+      },
+    {
+      "param": "*&…",
+      "assert":
+              {
+                "response": {"data": null,
+                             "displayMessage": "generic exception, please contact admin",
+                             "errorCode": -1,
+                             "messageKey": null,
+                             "technialMessage": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"*\""}
+
+              }
+      }
+    ,
+    {
+      "param": "89 89",
+      "assert":
+              {
+                "response": {"code":0,"message":"","data":"success"}
+              }
+      }
+
+]
+}

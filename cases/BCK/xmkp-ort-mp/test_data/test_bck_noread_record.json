@@ -1,0 +1,39 @@
+{
+  "setup_data": {
+    "mobile": "18921351052",
+    "password": "cyd129387"
+  },
+  "test_bck_noRead_record1": [
+    {
+      "lessonRef":"251",
+      "stepRef":"1397",
+      "campRef":"483",
+      "productRef":1,
+      "homeworkRef":1374,
+      "tryTimes":1,
+      "homeworkType":"readAndDrag"
+    }
+  ],
+  "test_bck_noRead_record2": [
+    {
+      "lessonRef":"251",
+      "stepRef":"1397",
+      "campRef":"483",
+      "productRef":1,
+      "homeworkRef":1374,
+      "tryTimes":2,
+      "homeworkType":"readAndDrag"
+    }
+  ],
+  "test_bck_noRead_record3": [
+    {
+      "lessonRef":"251",
+      "stepRef":"1397",
+      "campRef":"483",
+      "productRef":1,
+      "homeworkRef":1374,
+      "tryTimes":3,
+      "homeworkType":"readAndDrag"
+    }
+  ]
+}

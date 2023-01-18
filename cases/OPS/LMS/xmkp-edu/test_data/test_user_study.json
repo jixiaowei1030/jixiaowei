@@ -1,0 +1,12 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_user_study_list": [
+    {
+      "timeStamp": 1603952870345,
+      "userId": "307923",
+      "classRef": "89"
+    }
+  ]
+}

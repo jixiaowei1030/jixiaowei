@@ -1,0 +1,11 @@
+{
+  "setup_data": {
+      "mobile": "13150000012",
+      "password": "Jxw1994abc"
+  },
+  "test_query_user_task":  [
+    {
+      "uid": 1286193
+    }
+    ]
+}

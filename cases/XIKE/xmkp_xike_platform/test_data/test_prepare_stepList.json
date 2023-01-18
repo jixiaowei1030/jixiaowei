@@ -1,0 +1,13 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_prepare_stepList": [
+    {
+      "businessType": "11",
+      "campld": "345",
+      "source": "1"
+    }
+  ]
+}

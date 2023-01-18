@@ -1,0 +1,11 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_rebuy_channels": [
+    {
+      "timeStamp": 1603952870345
+
+    }
+  ]
+}

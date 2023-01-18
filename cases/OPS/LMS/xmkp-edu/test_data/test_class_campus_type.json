@@ -1,0 +1,23 @@
+{
+  "setup_data": {  "mobile": "leslie",
+    "password":"kafka"
+  },
+  "test_class_campus_type_tiyanying": [
+    {
+      "timeStamp": 1603952870345,
+      "classRef": "111"
+    }
+  ],
+    "test_class_campus_type_yueke": [
+    {
+      "timeStamp": 1603952870345,
+      "classRef": "220"
+    }
+  ],
+    "test_class_campus_type_changqizu": [
+    {
+      "timeStamp": 1603952870345,
+      "classRef": "898"
+    }
+  ]
+}

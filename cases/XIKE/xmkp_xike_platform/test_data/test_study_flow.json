@@ -1,0 +1,18 @@
+{
+  "setup_data": {
+    "mobile": "15618159999",
+    "password": "xima123456"
+  },
+  "test_study_flow_01": [
+	  {
+		  "test_study_flow_01_01":
+	  {
+		  "campId": 892,
+		  "stepId": "NCEPT6drf33vw",
+		  "startDate": "1656604800000",
+		  "requestType": 2,
+		  "source": 2
+	  }
+	  }
+  ]
+}

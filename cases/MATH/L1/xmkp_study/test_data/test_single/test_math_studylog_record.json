@@ -1,0 +1,42 @@
+{
+  "setup_data": {
+      "mobile": "15600000000",
+      "password": "xmly123456"
+  },
+  "test_math_studylog_record": [
+    {
+      "albumId": "1230454",
+      "userId": 200837,
+      "albumType": "AUDITION",
+      "lessonId": "8087552822529556480",
+      "practiceId": "1367904872882176",
+      "practiceSeq": "1367897151737856",
+      "startTime": 1624504403216,
+      "endTime": 1624504404543,
+      "studyTime": 2,
+      "result": true,
+      "beBalance": false,
+      "beFinalPracticeSeq": false,
+      "beFinalPractice": false,
+      "uniqueNo": "1624504389193",
+      "case_name": "题目做对检查"
+    },
+    {
+      "albumId": "1230454",
+      "userId": 200837,
+      "albumType": "AUDITION",
+      "lessonId": "8087552822529556480",
+      "practiceId": "1367904872882176",
+      "practiceSeq": "1367897151737856",
+      "startTime": 1624504403216,
+      "endTime": 1624504404543,
+      "studyTime": 2,
+      "result": false,
+      "beBalance": false,
+      "beFinalPracticeSeq": false,
+      "beFinalPractice": false,
+      "uniqueNo": "1624504389193",
+      "case_name": "题目做错检查"
+    }
+  ]
+}

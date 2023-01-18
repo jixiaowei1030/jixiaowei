@@ -1,0 +1,24 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_user_study_detail_0": [
+    {
+      "beginDate" : "2020-01-01",
+      "endDate": "2020-10-31"
+    }
+  ],
+  "test_user_study_detail_1": [
+    {
+      "beginDate" : "2020-11-01",
+      "endDate": "2020-12-31"
+    }
+  ],
+  "test_user_study_detail_2": [
+    {
+      "beginDate" : "2021-01-01",
+      "endDate": "2021-12-31"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "setup_data": {
+      "mobile": "17621818119",
+      "password": "xmly123456"
+  },
+  "test_bookworm_add_user_study_step_log_record": [
+    {
+      "chapterId": "BKWLS11111112",
+      "stepId": "BKWPT11111118",
+	  "beFinalStep": 1,
+      "bookId": "BKWUT11111111",
+      "casename": "新增环节记录"
+     }
+  ]
+}

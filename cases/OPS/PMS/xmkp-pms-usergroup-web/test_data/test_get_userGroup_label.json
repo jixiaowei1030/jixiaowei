@@ -1,0 +1,336 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_get_userGroup_label_success": [
+    {
+      "assert":{"response": {
+     "code": 0,
+     "data": [
+          {
+               "labelChildren": null,
+               "labelKey": "is_subscribe_flag",
+               "labelName": "是否关注公众号",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "last_subscribe_days",
+               "labelName": "最近次关注公众号距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_0ec_flag",
+               "labelName": "是否拥有0元体验营",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_end_days",
+               "labelName": "0元体验营结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_join_days",
+               "labelName": "0元体验营进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_start_days",
+               "labelName": "0元体验营开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_create_days",
+               "labelName": "获得0元体验营日期距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_1ec_flag",
+               "labelName": "是否拥有1元体验营",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_end_days",
+               "labelName": "1元体验营结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_join_days",
+               "labelName": "1元体验营进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_start_days",
+               "labelName": "1元体验营开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_create_days",
+               "labelName": "获得1元体验营日期距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_mc_flag",
+               "labelName": "是否拥有月课",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_join_days",
+               "labelName": "月课进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_end_days",
+               "labelName": "月课结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_start_days",
+               "labelName": "月课开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_create_days",
+               "labelName": "获得月课日期距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_yc_flag",
+               "labelName": "是否拥有年课",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_join_days",
+               "labelName": "年课进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_end_days",
+               "labelName": "年课结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_start_days",
+               "labelName": "年课开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_create_days",
+               "labelName": "获得年课日期距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_1pageview_flag",
+               "labelName": "是否浏览过最近次1元邀请活动",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_1poster_flag",
+               "labelName": "是否生成最近次1元邀请活动海报",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1_ux",
+               "labelName": "最近次1元邀请活动邀请人数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_before_1pageview_flag",
+               "labelName": "是否浏览过上一次1元邀请活动",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_99pageview_flag",
+               "labelName": "是否浏览过最近次99元邀请活动",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_99poster_flag",
+               "labelName": "是否生成最近次99元邀请活动海报",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "99_uv",
+               "labelName": "最近次99元邀请活动邀请人数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_last_before_99pageview_flag",
+               "labelName": "是否浏览过上一次99元邀请活动",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_second_camp_flag",
+               "labelName": "是否购买二次报名营",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_second_week_class_flag",
+               "labelName": "是否购买双周课",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "age_year ",
+               "labelName": "年龄",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_end_days_bck",
+               "labelName": "牛津树0元体验营结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_end_days_bck",
+               "labelName": "牛津树1元体验营结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_end_days_bck",
+               "labelName": "牛津树月课结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_end_days_bck",
+               "labelName": "牛津树年课结班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_yc_flag_bck",
+               "labelName": "是否拥有牛津树年课",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_mc_flag_bck",
+               "labelName": "是否拥有牛津树月课",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_0ec_flag_bck",
+               "labelName": "是否拥有牛津树0元体验营",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "is_1ec_flag_bck",
+               "labelName": "是否拥有牛津树1元体验营",
+               "labelType": 2
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_start_days_bck",
+               "labelName": "牛津树0元体验营开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_start_days_bck",
+               "labelName": "牛津树1元体验营开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_start_days_bck",
+               "labelName": "牛津树月课开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_start_days_bck",
+               "labelName": "牛津树年课开班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "0ec_join_days_bck",
+               "labelName": "牛津树0元体验营进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "1ec_join_days_bck",
+               "labelName": "牛津树1元体验营进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "mc_join_days_bck",
+               "labelName": "牛津树月课进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": null,
+               "labelKey": "yc_join_days_bck",
+               "labelName": "牛津树年课进班距昨天天数",
+               "labelType": 1
+          },
+          {
+               "labelChildren": [
+                    "1-6",
+                    "1-9",
+                    "2-3",
+                    "2-9",
+                    "4-9",
+                    "5-9",
+                    "双周课1-9"
+               ],
+               "labelKey": "year_campus_type_name",
+               "labelName": "拥有年课SKU",
+               "labelType": 3
+          },
+          {
+               "labelChildren": [
+                    "L1",
+                    "L4"
+               ],
+               "labelKey": "month_campus_type_name",
+               "labelName": "拥有月课SKU",
+               "labelType": 3
+          }
+     ],
+     "message": "",
+     "success": 0
+}
+
+       },
+        "setup":{},
+        "teardown": {}
+    }
+  ]
+}

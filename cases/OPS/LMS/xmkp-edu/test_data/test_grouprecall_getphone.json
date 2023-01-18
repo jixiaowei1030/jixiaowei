@@ -1,0 +1,14 @@
+{
+  "setup_data": {"mobile": "leslie",
+    "password":"kafka",
+    "ruid": 110000631,
+    "room_id": 460810
+  },
+  "test_grouprecall_getphone": [
+    {
+      "timeStamp": 1603952870345,
+      "studentId": 800058
+
+    }
+  ]
+}

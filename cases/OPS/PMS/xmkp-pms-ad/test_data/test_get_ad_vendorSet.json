@@ -1,0 +1,7 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_get_ad_vendorSet_success": [{
+    "assert":{"response": {"success": 0, "code": 0, "message": "success", "data": {"1": "广点通", "2": "巨量引擎", "3": "快手"}}}
+       }]
+}

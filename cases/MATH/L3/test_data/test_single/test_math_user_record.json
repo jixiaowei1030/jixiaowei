@@ -1,0 +1,11 @@
+{
+  "setup_data": {
+    "mobile": "13310155819",
+    "password": "123456l"
+  },
+  "test_data_user_record1": [
+    {
+      "type": 3
+    }
+  ]
+}

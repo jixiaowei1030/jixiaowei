@@ -1,0 +1,25 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_resource_levelBookResources_01": [
+    {
+      "businessType": 11,
+      "levelCode": 1
+    }
+
+  ],"test_resource_levelBookResources_02": [
+    {
+      "businessType": 11,
+      "levelCode": 2
+    }
+
+  ],"test_resource_levelBookResources_03": [
+    {
+      "businessType": 11,
+      "levelCode": 5
+    }
+
+  ]
+}

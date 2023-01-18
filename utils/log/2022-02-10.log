@@ -1,0 +1,12 @@
+2022-02-10 12:40:12,164 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-02-10 12:40:12,200 - INFO - conn.py - _execute - MainThread: show tables from xmkp_edu
+2022-02-10 12:40:12,203 - INFO - conn.py - _execute - MainThread: SELECT id  from xmkp_edu.EDU_CAMP where id = 21
+2022-02-10 12:41:04,155 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试开始----------
+2022-02-10 12:41:04,156 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-02-10 12:41:07,689 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试结束----------
+2022-02-10 12:41:39,362 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试开始----------
+2022-02-10 12:41:39,362 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-02-10 12:41:40,251 - INFO - conftest.py - xike_client - MainThread: ----------喜课接口测试结束----------
+2022-02-10 12:42:41,281 - INFO - conn.py - _pymysql_connection - MainThread: start to connect mysql
+2022-02-10 12:42:41,303 - INFO - conn.py - _execute - MainThread: show tables from xmkp_edu
+2022-02-10 12:42:41,307 - INFO - conn.py - _execute - MainThread: SELECT id  from xmkp_edu.EDU_CAMP where id = 21

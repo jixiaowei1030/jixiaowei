@@ -1,0 +1,31 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_lately_read_0": [
+    {
+      "typeId" : 0
+    }
+  ],
+  "test_lately_read_1": [
+    {
+      "typeId" : 1
+    }
+  ],
+    "test_lately_read_2": [
+    {
+      "typeId" : 2
+    }
+  ],
+    "test_lately_read_3": [
+    {
+      "typeId" : 3
+    }
+  ],
+    "test_lately_read_4": [
+    {
+      "typeId" : 4
+    }
+  ]
+}

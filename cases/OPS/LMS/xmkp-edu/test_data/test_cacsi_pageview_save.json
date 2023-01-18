@@ -1,0 +1,14 @@
+{
+  "setup_data": {"mobile": "leslie","password":"kafka"
+  },
+  "test_cacsi_pageview_save": [
+    {
+      "menuId":1758
+    }
+  ],
+  "test_cacsi_pageview_save_417": [
+    {
+      "menuId":0
+    }
+  ]
+}

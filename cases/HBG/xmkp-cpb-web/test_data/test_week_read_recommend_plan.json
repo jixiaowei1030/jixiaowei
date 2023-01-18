@@ -1,0 +1,18 @@
+ {
+   "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_week_read_recommend_plan_1": [
+     {
+      "level": 3,
+      "bookCount": 5
+    }
+  ],
+  "test_week_read_recommend_plan_2": [
+    {
+      "level": 999,
+      "bookCount":8
+     }
+   ]
+ }

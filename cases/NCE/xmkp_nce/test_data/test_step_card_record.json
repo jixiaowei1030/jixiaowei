@@ -1,0 +1,13 @@
+{
+  "setup_data": {
+    "mobile": "13167011424",
+    "password": "asdf3.14"
+  },
+  "test_step_card_record": [
+     {
+  "studyStepId": 1759,
+  "cardId": 68,
+  "stepId": 643
+ }
+  ]
+}

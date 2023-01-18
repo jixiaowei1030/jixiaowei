@@ -1,0 +1,18 @@
+{
+  "setup_data": {
+      "mobile": "15618159999",
+      "password": "xima123456"
+  },
+  "test_find_book_chapterinfo": [
+    {
+      "casename": "查询书虫某章节信息",
+      "chapterId": "BKWLS6e2531wq",
+      "bookId": "BKWUT6e2331tl"
+     },
+    {
+      "casename": "章节id不对",
+      "chapterId": "11111111",
+      "bookId": "BKWUT6e2331tl"
+     }
+  ]
+}

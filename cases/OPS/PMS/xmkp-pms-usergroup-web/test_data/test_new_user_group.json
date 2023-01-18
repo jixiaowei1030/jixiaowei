@@ -1,0 +1,567 @@
+{
+  "setup_data": { "mobile": "leslie","password":"kafka"
+  },
+  "test_NewUserGroup_Success_Repeat": [
+    {
+      "business": 2,
+      "groupName": "新概念分群名称",
+      "rule": {
+        "labels": [
+            {
+                "key": "last_subscribe_days",
+                "operator": ">",
+                "values": [
+                    40
+                ]
+            },
+            {
+                "key": "is_1ec_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+            {
+                "key": "0ec_join_days",
+                "operator": "<",
+                "values": [
+                    40
+                ]
+            },
+            {
+                "key": "is_0ec_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            }
+        ],
+        "logic": "and"
+      },
+      "assert":{"response":[
+                            {"success": 0, "code": 0, "message": "", "data": null},
+                            {"success": -1, "code": 102, "message": "用户分群名称已存在", "data": null}
+                    ]
+      },
+      "teardown": {"query":["delete  from xmkp_usergroup.OPERATION_LOG where dml_table_record_id in (SELECT id  FROM xmkp_usergroup.USER_GROUP where group_name=\"新概念分群名称%s\" );",
+                    "delete from xmkp_usergroup.USER_GROUP where group_name=\"新概念分群名称%s\";"
+                    ]
+      }
+    },
+
+    {
+      "business": 1,
+      "groupName": "牛津树分群名称",
+      "rule": {
+        "labels": [
+            {
+                "key": "last_subscribe_days",
+                "operator": ">",
+                "values": [
+                    40
+                ]
+            },
+            {
+                "key": "is_1ec_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+            {
+                "key": "0ec_join_days",
+                "operator": "<",
+                "values": [
+                    40
+                ]
+            },
+            {
+                "key": "is_0ec_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            }
+        ],
+        "logic": "or"
+      },
+      "assert":{"response":[
+                            {"success": 0, "code": 0, "message": "", "data": null},
+                            {"success": -1, "code": 102, "message": "用户分群名称已存在", "data": null}
+                    ]
+      },
+      "teardown": {"query":["delete  from xmkp_usergroup.OPERATION_LOG where dml_table_record_id in (SELECT id  FROM xmkp_usergroup.USER_GROUP where group_name=\"牛津树分群名称%s\" );",
+                    "delete from xmkp_usergroup.USER_GROUP where group_name=\"牛津树分群名称%s\";"
+                    ]
+      }
+    },
+
+
+
+
+
+
+    {
+      "business": 1,
+      "groupName": "牛津树分群名称",
+      "rule": {
+        "labels": [
+          {
+                "key": "is_subscribe_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "last_subscribe_days",
+                "operator": "<",
+                "values": [
+                    365
+                ]
+            },
+          {
+                "key": "is_0ec_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "0ec_end_days",
+                "operator": ">=",
+                "values": [
+                    99
+                ]
+            },
+          {
+                "key": "0ec_join_days",
+                "operator": "<=",
+                "values": [
+                    76
+                ]
+            },
+          {
+                "key": "0ec_start_days",
+                "operator": "between",
+                "values": [
+                    76,725
+                ]
+            },
+          {
+                "key": "0ec_create_days",
+                "operator": ">",
+                "values": [
+                    22
+                ]
+            },
+          {
+                "key": "is_1ec_flag",
+                "operator": "=",
+                "values": [
+                    true
+                ]
+            },
+          {
+                "key": "1ec_end_days",
+                "operator": "<",
+                "values": [
+                    56
+                ]
+            },
+          {
+                "key": "1ec_join_days",
+                "operator": ">=",
+                "values": [
+                    78
+                ]
+            },
+          {
+                "key": "1ec_start_days",
+                "operator": "<",
+                "values": [
+                    222
+                ]
+            },
+          {
+                "key": "1ec_create_days",
+                "operator": "<=",
+                "values": [
+                    222
+                ]
+            },
+          {
+                "key": "is_mc_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "mc_join_days",
+                "operator": "between",
+                "values": [
+                    6,231
+                ]
+            },
+          {
+                "key": "mc_end_days",
+                "operator": "between",
+                "values": [
+                    91,341
+                ]
+            },
+          {
+                "key": "mc_start_days",
+                "operator": ">=",
+                "values": [
+                    11
+                ]
+            },
+          {
+                "key": "mc_create_days",
+                "operator": ">",
+                "values": [
+                    111
+                ]
+            },
+          {
+                "key": "is_yc_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "yc_join_days",
+                "operator": "=",
+                "values": [
+                    46
+                ]
+            },
+          {
+                "key": "yc_end_days",
+                "operator": "=",
+                "values": [
+                    267
+                ]
+            },
+          {
+                "key": "yc_start_days",
+                "operator": "=",
+                "values": [
+                    274
+                ]
+            },
+          {
+                "key": "yc_create_days",
+                "operator": "<",
+                "values": [
+                    124
+                ]
+            },
+          {
+                "key": "is_last_1pageview_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "is_last_1poster_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "1_ux",
+                "operator": "=",
+                "values": [
+                    90
+                ]
+            },
+          {
+                "key": "is_last_before_1pageview_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "is_last_99pageview_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "is_last_99poster_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "99_uv",
+                "operator": "=",
+                "values": [
+                    123
+                ]
+            },
+          {
+                "key": "is_last_before_99pageview_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            }
+
+        ],
+        "logic": "and"
+      },
+      "assert":{"response":[
+                            {"success": 0, "code": 0, "message": "", "data": null},
+                            {"success": -1, "code": 102, "message": "用户分群名称已存在", "data": null}
+                    ]
+      },
+      "teardown": {"query":["delete  from xmkp_usergroup.OPERATION_LOG where dml_table_record_id in (SELECT id  FROM xmkp_usergroup.USER_GROUP where group_name=\"牛津树分群名称%s\" );",
+                    "delete from xmkp_usergroup.USER_GROUP where group_name=\"牛津树分群名称%s\";"
+                    ]
+      }
+    },
+
+
+
+
+    {
+      "business": 2,
+      "groupName": "新概念分群名称",
+      "rule": {
+        "labels": [
+          {
+                "key": "is_subscribe_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "last_subscribe_days",
+                "operator": "<",
+                "values": [
+                    365
+                ]
+            },
+          {
+                "key": "is_0ec_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "0ec_end_days",
+                "operator": ">=",
+                "values": [
+                    99
+                ]
+            },
+          {
+                "key": "0ec_join_days",
+                "operator": "<=",
+                "values": [
+                    76
+                ]
+            },
+          {
+                "key": "0ec_start_days",
+                "operator": "between",
+                "values": [
+                    76,725
+                ]
+            },
+          {
+                "key": "0ec_create_days",
+                "operator": ">",
+                "values": [
+                    22
+                ]
+            },
+          {
+                "key": "is_1ec_flag",
+                "operator": "=",
+                "values": [
+                    true
+                ]
+            },
+          {
+                "key": "1ec_end_days",
+                "operator": "<",
+                "values": [
+                    56
+                ]
+            },
+          {
+                "key": "1ec_join_days",
+                "operator": ">=",
+                "values": [
+                    78
+                ]
+            },
+          {
+                "key": "1ec_start_days",
+                "operator": "<",
+                "values": [
+                    222
+                ]
+            },
+          {
+                "key": "1ec_create_days",
+                "operator": "<=",
+                "values": [
+                    222
+                ]
+            },
+          {
+                "key": "is_mc_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "mc_join_days",
+                "operator": "between",
+                "values": [
+                    6,231
+                ]
+            },
+          {
+                "key": "mc_end_days",
+                "operator": "between",
+                "values": [
+                    91,341
+                ]
+            },
+          {
+                "key": "mc_start_days",
+                "operator": ">=",
+                "values": [
+                    11
+                ]
+            },
+          {
+                "key": "mc_create_days",
+                "operator": ">",
+                "values": [
+                    111
+                ]
+            },
+          {
+                "key": "is_yc_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "yc_join_days",
+                "operator": "=",
+                "values": [
+                    46
+                ]
+            },
+          {
+                "key": "yc_end_days",
+                "operator": "=",
+                "values": [
+                    267
+                ]
+            },
+          {
+                "key": "yc_start_days",
+                "operator": "=",
+                "values": [
+                    274
+                ]
+            },
+          {
+                "key": "yc_create_days",
+                "operator": "<",
+                "values": [
+                    124
+                ]
+            },
+          {
+                "key": "is_last_1pageview_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "is_last_1poster_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "1_ux",
+                "operator": "=",
+                "values": [
+                    90
+                ]
+            },
+          {
+                "key": "is_last_before_1pageview_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "is_last_99pageview_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            },
+          {
+                "key": "is_last_99poster_flag",
+                "operator": "=",
+                "values": [
+                    "true"
+                ]
+            },
+          {
+                "key": "99_uv",
+                "operator": "=",
+                "values": [
+                    123
+                ]
+            },
+          {
+                "key": "is_last_before_99pageview_flag",
+                "operator": "=",
+                "values": [
+                    "false"
+                ]
+            }
+
+        ],
+        "logic": "or"
+      },
+      "assert":{"response":[
+                            {"success": 0, "code": 0, "message": "", "data": null},
+                            {"success": -1, "code": 102, "message": "用户分群名称已存在", "data": null}
+                    ]
+      },
+      "teardown": {"query":["delete  from xmkp_usergroup.OPERATION_LOG where dml_table_record_id in (SELECT id  FROM xmkp_usergroup.USER_GROUP where group_name=\"新概念分群名称%s\" );",
+                    "delete from xmkp_usergroup.USER_GROUP where group_name=\"新概念分群名称%s\";"
+                    ]
+      }
+    }
+  ]
+}

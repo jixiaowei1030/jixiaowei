@@ -1,0 +1,12 @@
+{
+  "setup_data": {
+    "mobile": "17602163851",
+    "password": "asdf3.14"
+  },
+  "test_share_token": [
+    {
+      "uid": 344746,
+      "bookId": 2867
+    }
+  ]
+}

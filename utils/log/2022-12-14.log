@@ -1,0 +1,40 @@
+2022-12-14 18:35:26,828 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:35:33,279 - INFO - conftest.py - _element_visibility - MainThread: [启动APP的同意按钮]元素:[com.ximalaya.ting.kid:id/button_positive] 通过:[id]查找不可见，返回False !!
+2022-12-14 18:35:33,280 - INFO - conftest.py - _element_visibility - MainThread: [允许通知按钮] 元素在:[android]设备上为空！
+2022-12-14 18:35:33,280 - INFO - conftest.py - _element_visibility - MainThread: [banner跳过按钮] 元素在:[android]设备上为空！
+2022-12-14 18:36:24,084 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:36:31,029 - INFO - conftest.py - _element_visibility - MainThread: [启动APP的同意按钮]元素:[com.ximalaya.ting.kid:id/button_positive] 通过:[id]查找不可见，返回False !!
+2022-12-14 18:36:31,030 - INFO - conftest.py - _element_visibility - MainThread: [允许通知按钮] 元素在:[android]设备上为空！
+2022-12-14 18:36:31,030 - INFO - conftest.py - _element_visibility - MainThread: [banner跳过按钮] 元素在:[android]设备上为空！
+2022-12-14 18:49:12,811 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:49:17,342 - INFO - conftest.py - _click_element - MainThread: 已点击元素:[填写生日选择控件]
+2022-12-14 18:49:51,121 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:49:56,068 - INFO - conftest.py - _click_element - MainThread: 已点击元素:[填写生日选择控件]
+2022-12-14 18:50:39,267 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:50:46,309 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[com.alibaba.android.rimet:id/home_app_item[2]] 通过:[id]没找到 !!
+2022-12-14 18:51:11,702 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:51:18,767 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[com.alibaba.android.rimet:id/home_app_item[2]] 通过:[id]没找到 !!
+2022-12-14 18:51:41,399 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 18:51:45,031 - INFO - conftest.py - _click_element - MainThread: 已点击元素:[填写生日选择控件]
+2022-12-14 19:08:22,970 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:08:27,317 - INFO - conftest.py - _click_element - MainThread: 已点击元素:[填写生日选择控件]
+2022-12-14 19:10:31,103 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:10:38,158 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!
+2022-12-14 19:11:34,923 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:11:42,040 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span] 通过:[xpath]没找到 !!
+2022-12-14 19:12:38,996 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:12:44,670 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span] 通过:[xpath]没找到 !!
+2022-12-14 19:15:28,799 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:15:35,974 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span] 通过:[xpath]没找到 !!
+2022-12-14 19:16:18,588 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:16:25,751 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!
+2022-12-14 19:16:48,229 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:16:51,825 - INFO - conftest.py - _click_element - MainThread: 已点击元素:[填写生日选择控件]
+2022-12-14 19:17:11,507 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:17:17,892 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!
+2022-12-14 19:25:27,440 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:25:34,509 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件]元素:[//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!
+2022-12-14 19:26:24,486 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:26:31,688 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件2]元素:[.//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!
+2022-12-14 19:27:23,231 - INFO - conftest.py - Appium_driver - MainThread: 已启动app!
+2022-12-14 19:27:30,210 - ERROR - conftest.py - _click_element - MainThread: [填写生日选择控件2]元素:[.//*[@id="sourceContainer"]/div/div[3]/div/div/div/div[21]/span[3]/span/span/span/span/text()[2]] 通过:[xpath]没找到 !!

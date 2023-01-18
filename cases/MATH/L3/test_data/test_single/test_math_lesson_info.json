@@ -1,0 +1,24 @@
+{
+  "setup_data": {
+    "mobile": "13310155819",
+    "password": "123456l"
+  },
+  "test_math_lesson_info": [
+    {
+      "id": 2,
+      "img": "https://xmkpmathbuckettest-1251952132.cos.ap-shanghai.myqcloud.com/app/lesson/2.png",
+      "casename":"第一周第一课信息检查"
+    },
+    {
+      "id": 1,
+      "img": "https://xmkpmathbuckettest-1251952132.cos.ap-shanghai.myqcloud.com/app/lesson/1.png",
+      "casename":"第一周第二课信息检查"
+    },
+    {
+      "id": 341,
+      "status": 500,
+      "casename": "课程id不存在异常场景测试"
+
+    }
+  ]
+}
