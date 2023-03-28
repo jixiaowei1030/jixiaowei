@@ -22,7 +22,7 @@ def browser():
     global driver
     driver_path = '/chromedriver'
     if driver is None:
-        driver = webdriver.Chrome(service=Service(driver_path))
+        driver = webdriver.Chrome(driver_path)
         driver.maximize_window()
     yield driver
     # 所有用例执行完毕退出浏览器
