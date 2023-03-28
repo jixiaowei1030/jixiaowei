@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 driver = None
 
@@ -20,9 +21,12 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture(scope="session")
 def browser():
     global driver
-    driver_path = '/chromedriver'
+    # driver_path = '/chromedriver'
     if driver is None:
-        driver = webdriver.Chrome(driver_path)
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        driver = webdriver.Chrome(chrome_options=chrome_options)
         driver.maximize_window()
     yield driver
     # 所有用例执行完毕退出浏览器
