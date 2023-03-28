@@ -1,7 +1,7 @@
 import pytest
 import allure
 import time
-
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
@@ -20,8 +20,9 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture(scope="session")
 def browser():
     global driver
+    driver_path = '/chromedriver'
     if driver is None:
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(service=Service(driver_path))
         driver.maximize_window()
     yield driver
     # 所有用例执行完毕退出浏览器
