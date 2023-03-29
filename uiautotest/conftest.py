@@ -18,26 +18,29 @@ def pytest_runtest_makereport(item, call):
         if hasattr(driver, "get_screenshot_as_png"):
             allure.attach(driver.get_screenshot_as_png(), "异常截图", allure.attachment_type.PNG)
 
+
 @pytest.fixture(scope="session")
 def browser():
     global driver
-    # driver_path = '/chromedriver'
     if driver is None:
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--disable-gpu')
-        driver = webdriver.Chrome(chrome_options=chrome_options)
-        driver.maximize_window()
+        # chrome_options = Options()
+        # chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--disable-gpu')
+        # driver = webdriver.Chrome(chrome_options=chrome_options)
+        driver = webdriver.Chrome()
+        # driver.maximize_window()
     yield driver
     # 所有用例执行完毕退出浏览器
     time.sleep(5)
     driver.quit()
 
 
-# def add_shipment(self):
-#     element = self.find_element(By.XPATH,'//*[@id="app"]/div/div[1]/div[1]/div[2]/div/ul/li[3]/div/span[1]')
-#     actions = ActionChains(driver)
-#     actions.move_to_element(element).perform()
-#     self.click(By.XPATH,'//*[@id="app"]/div/div[1]/div[1]/div[2]/div/ul/li[3]/div/span[2]/div/ul/li/div/div/ul/li[1]/span')
-#     self.click(By.XPATH,'//*[@id="app"]/div/div[2]/div[2]/div/div[1]/div[2]/div[2]/div/span[1]/button')
-#     self.click(By.XPATH,'//*[@id="app"]/div/div[2]/div[2]/div/div[2]/div/div/div[3]/div/div/span/div/button[1]')
+@pytest.fixture(scope="session")
+def login():
+    driver.get("https://dev-sa.link-tech.com/#/")
+    driver.find_element(By.XPATH,"//*[@type='text']").send_keys("lizhanquan@126.com")
+    driver.find_element(By.XPATH,"//*[@type='password']").send_keys("123456abc")
+    driver.find_element(By.XPATH,"//*[@class='lt-button lt-button-primary lt-button-large login-form-btn']").click()
+    time.sleep(3)
+
+

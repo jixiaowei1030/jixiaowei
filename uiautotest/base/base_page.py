@@ -17,6 +17,15 @@ class BasePage:
         self.driver.implicitly_wait(seconds)
         log.info(f"wait for {seconds} seconds")
 
+    def clear(self, *selector):
+        el = self.find_element(*selector)
+        try:
+            el.clear()
+            log.info("Clear text in input box before typing.")
+        except NameError as e:
+            log.error("Failed to clear in input box with %s" % e)
+            self.get_windows_img()
+
     def get_windows_img(self):
         file_path = os.path.dirname(os.path.abspath('.')) + '/screenshots/'
         rq = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
@@ -30,16 +39,23 @@ class BasePage:
 
     def find_element(self, *selector):
         try:
-            self.wait(10)
-            element = self.driver.find_element(*selector)
+            wait = WebDriverWait(self.driver, 10)
+            element = wait.until(lambda x: x.find_element(*selector))
             log.info(f"The element looked up is {selector}")
             return element
         except NoSuchElementException as e:
             log.error(f"NoSuchElement:{selector}")
             self.get_windows_img()
 
-    def send_keys(self,*selector,word):
-        self.find_element(*selector).send_keys(word)
+    def send_keys(self,*selector,text):
+        el = self.find_element(*selector)
+        el.clear()
+        try:
+            el.send_keys(text)
+            log.info(f"Had type ## {text} ## in inputBox")
+        except NameError as e:
+            log.error("Failed to type in input box with %s" % e)
+            self.get_windows_img()
 
     def click(self, *selector):
         el = self.find_element(*selector)
@@ -49,11 +65,11 @@ class BasePage:
         except NameError as e:
             log.error("Failed to click the element with %s" % e)
 
-    def isexit(self,*selector):
+    def is_element_exit(self,*selector):
         try:
             wait = WebDriverWait(self.driver, 10)
-            element = wait.until(EC.presence_of_element_located(selector))
-            return element
+            wait.until(EC.presence_of_element_located(selector))
+            return True
         except :
             return False
 
