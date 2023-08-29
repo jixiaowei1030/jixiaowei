@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>直500</title>
+</head>
+<body>
+<!--<p>请输入你的项目编号</p>-->
+
+<!--<form action="/result" method="get">-->
+<!--    编号: <input type="text" name="id"> <br>-->
+<!--    <br>-->
+<!--    <input type="submit" value="提交">-->
+<!--</form>-->
+
+
+<h4> 直500 </h4>
+<form action="/pro/add" method="get">
+    客户经理: <input type="text" name="custName"> <br>
+<!--    承租人名称: <input type="text" name="lesaseName"> <br>-->
+<!--    项目编号（非必填）: <input type="text" name="projectNo"> <br>-->
+    是否需要担保方（非必填,1:是,2:否,默认否）: <input type="text" name="guarantor"> <br>
+     <p> 节点：<input type="radio" name="node" value="0">待授信申请
+         <input type="radio" name="node"  value="1">业务主管审批
+<!--         <input type="radio" name="node"  value="2">区域负责人审批-->
+         <input type="radio" name="node"  value="3">评审经理审批
+         <input type="radio" name="node"  value="4">评审主管审批
+         <input type="radio" name="node"  value="5">有权人审批
+         <input type="radio" name="node"  value="6">审批通过
+
+     </p>
+    <br>
+    <input type="submit" value="提交">
+</form>
+
+
+
+</body>
+</html>
