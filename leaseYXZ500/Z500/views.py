@@ -1357,9 +1357,34 @@ def index(request):
 def demo(request):
     return render(request, 'demo.html')
 
+
+from django import forms
+# from .models import Teacher
+from django.forms import widgets
+# 作者-上海悠悠 QQ交流群:717225969
+# blog地址 https://www.cnblogs.com/yoyoketang/
+
+
+class SelectDemo(forms.Form):
+    teacher = forms.CharField(
+                        label="老师",
+                        initial=[1, ],
+                        widget=widgets.Select())
+
+    # 保证每次访问重新获取最新数据
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # print(type(Teacher.objects.values_list("id", "name")))
+        # print(Teacher.objects.values_list("id", "name"))
+        set ={(1, '张三'), (2, '李四'),(3, '王五')}
+        # self.fields["teacher"].widget.choices = Teacher.objects.values_list("id", "name")
+        self.fields["teacher"].widget.choices = set
+
 # 测试QQ号访问页面
 def test_qq(request):
-    return render(request, 'get_demo.html')
+    form_obj = SelectDemo()
+    print(form_obj)
+    return render(request, "get_demo1.html", locals())
 
 # 提交后返回页面
 def result_qq(request):

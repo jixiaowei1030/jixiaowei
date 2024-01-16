@@ -1,23 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>demo样式</title>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>demo样式</title>-->
+<!--</head>-->
+<!--<body>-->
 
-<p>
-    <h4> 这是我的博客地址，可以百度搜：上海-悠悠 </h4>
-    <a href="https://www.cnblogs.com/yoyoketang/" target="_blank" >上海-悠悠-博客园</a>
-    <hr>
-    <h4> 《python自动化框架pytest》 </h4>
-    <p>pytest是最强大最好用的python自动化框架，没有之一。本书详细讲解pytest框架使用方法，fixture功能是pytest的精髓，书中有详细的案例讲解。<br>
-        另外最后会有项目实战代码，灵活用到selenium自动化项目上。<br>
-        pytest交流群874033608
+<!--<p>-->
+<!--    <h4> 这是我的博客地址，可以百度搜：上海-悠悠 </h4>-->
+<!--    <a href="https://www.cnblogs.com/yoyoketang/" target="_blank" >上海-悠悠-博客园</a>-->
+<!--    <hr>-->
+<!--    <h4> 《python自动化框架pytest》 </h4>-->
+<!--    <p>pytest是最强大最好用的python自动化框架，没有之一。本书详细讲解pytest框架使用方法，fixture功能是pytest的精髓，书中有详细的案例讲解。<br>-->
+<!--        另外最后会有项目实战代码，灵活用到selenium自动化项目上。<br>-->
+<!--        pytest交流群874033608-->
 
-    </p>
-    <a href="https://yuedu.baidu.com/ebook/902224ab27fff705cc1755270722192e4536582b" target="_blank" >百度阅读地址点此</a>
-</p>
+<!--    </p>-->
+<!--    <a href="https://yuedu.baidu.com/ebook/902224ab27fff705cc1755270722192e4536582b" target="_blank" >百度阅读地址点此</a>-->
+<!--</p>-->
+<!--    <p>{{cust}}</p>-->
 
 </body>
 </html>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/toastr.min.css' %}">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'css/toastr.min.js' %}"></script>
+
+<body>
+
+<div class="container">
+    <button class="btn btn-info">info</button>
+    <button class="btn btn-success">success</button>
+    <button class="btn btn-warning">warning</button>
+    <button class="btn btn-danger" type="submit" >error</button>
+
+
+<!--    <input type="submit" value="提交">-->
+
+
+</div>
+
+
+</body>
+
+<script>
+    //toastr消息
+    $(".btn-info").click(function(){
+        toastr.info('info 消息提示')
+    });
+    $(".btn-success").click(function(){
+        toastr.success('操作成功！')
+    });
+    $(".btn-warning").click(function(){
+        toastr.warning('警告内容！')
+    });
+    $(".btn-danger").click(function(){
+        toastr.error('服务器异常！')
+        toastr.error('警告内容！')
+
+    });
+</script>
+
+<div class="container">
+    <button id="get_btn" class="btn btn-info">发get请求</button>
+    <button id="post_btn" class="btn btn-info">发post请求</button>
+</div>
+    客户经理: <input type="text" name="number1"> <br>
+
+
+
+<script>
+    $("#get_btn").click(function(){
+            var custName = $('input[name="number1"]').val()
+            toastr.error('服务器异常！');
+            $.get('pro/add',
+                    {
+                        custName: custName,
+                        node: "1",
+                        guarantor:"2"
+                    },
+                  function(data, status) {
+                      alert("状态："+ status + ",body:" + JSON.stringify(data))
+                  })
+    })
+</script>
+
+

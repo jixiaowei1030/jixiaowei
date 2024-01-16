@@ -74,44 +74,37 @@
         <option value="zll" title="zll">zll</option>
     </select><br><br>
 
+
+
+
+
     <th><label for="id_env">测试环境:</label></th>
     <select class="selectenv" title="请选择">
         <option value="test" title="test">uat</option>
         <option value="sit" title="sit">sit</option>
-    </select><br><br>
+    </select><br>
 
-    <th><label for="id_guarantor">是否需要担保方:</label></th>
-    <select class="selectguarantor" title="请选择">
-        <option value="2" title="2">否</option>
-        <option value="1" title="1">是</option>
-        <option value="3" title="3">多个</option>
-    </select><br><br>
+    <p> 合同编号：<input type="text" name="payMainNo"> 此项目已授信审批通过且无担保方</p>
 
-    <th><label for="id_trade">交易结构数量:</label></th>
-    <select class="selecttrade" title="请选择">
-        <option value="1" title="1">1</option>
-        <option value="2" title="2">2</option>
-        <option value="3" title="3">3</option>
-        <option value="4" title="4">4</option>
-        <option value="5" title="5">5</option>
-        <option value="6" title="6">6</option>
-        <option value="7" title="7">7</option>
-        <option value="8" title="8">8</option>
-        <option value="9" title="9">9</option>
-    </select><br><br>
+<!--    <th><label for="id_guarantor">是否需要担保方:</label></th>-->
+<!--    <select class="selectguarantor" title="请选择">-->
+<!--        <option value="2" title="2">否</option>-->
+<!--        <option value="1" title="1">是</option>-->
+<!--        <option value="3" title="3">多个</option>-->
+<!--    </select><br><br>-->
 
 <!--    是否需要担保方（非必填,1:是,2:否,默认否）: <input type="text" name="guarantor"> <br><br>-->
 <!--    测试环境（非必填,sit,test,默认test）: <input type="text" name="env"> <br><br>-->
-     <p> 节点：<input type="radio" name="node" value="0">待授信申请（未填写）
-         <input type="radio" name="node" value="1">待授信申请（已填写）
-         <input type="radio" name="node"  value="2">业务主管审批
-         <input type="radio" name="node"  value="3">区域负责人审批
-         <input type="radio" name="node"  value="4">评审经理审批
-         <input type="radio" name="node"  value="5">评审主管审批
-         <input type="radio" name="node"  value="6">有权人审批
-         <input type="radio" name="node"  value="7">审批通过
+<!--     <p> 节点：<input type="radio" name="node" value="0">待授信申请（未填写）-->
+<!--         <input type="radio" name="node" value="1">待授信申请（已填写）-->
+<!--         <input type="radio" name="node"  value="2">业务主管审批-->
+<!--          <p> 节点：<input type="radio" name="node"  value="3">区域负责人审批-->
+<!--        <input type="radio" name="node"  value="4">评审经理审批-->
+<!--         <input type="radio" name="node"  value="5">评审主管审批-->
+<!--         <input type="radio" name="node"  value="6">有权人审批-->
+<!--         <input type="radio" name="node"  value="7">审批通过-->
 
-     </p><br>
+<!--     </p><br>-->
 
     <button id="get_btn" class="btn btn-info">提交</button>
 <!--    <button id="post_btn" class="btn btn-info">发post请求</button>-->
@@ -144,23 +137,18 @@
 <script>
     $("#get_btn").click(function(){
         var custName = $(".selectcust").val();
+        var payMainNo = $('input[name="payMainNo"]').val();
         var env = $(".selectenv").val();
-        var guarantor = $(".selectguarantor").val();
-        var trade = $(".selecttrade").val();
-<!--        var env = $('input[name="env"]').val();-->
-<!--        var guarantor = $('input[name="guarantor"]').val();-->
-        var node = $('input[name="node"]').serialize();
-        toastr.success('提交成功,正在执行脚本,请耐心等待,大概8分钟');
+<!--        var node = $('input[name="node"]').serialize();-->
+        toastr.success('提交成功,正在执行脚本,请耐心等待,大概5分钟');
         $.ajax({
             url: "pro/add",
             type: "GET",  //默认值: "GET"请求方式 ("POST" 或 "GET")
             data: {
                         custName: custName,
+                        payMainNo: payMainNo,
                         env: env,
-                        node: node,
-                        guarantor: guarantor,
-                        trade: trade
-
+<!--                        node: node-->
                     },
             dataType:"json",   //服务器返回的类型json,xml,text,html等
             success: function(result, status, xhr){      // 回调结果，如果成功

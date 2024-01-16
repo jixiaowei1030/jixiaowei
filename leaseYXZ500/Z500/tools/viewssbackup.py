@@ -14,12 +14,6 @@ from Z500.models import Biz_flow_info
 from Z500.models import Auth_user_sync_record
 from Z500.models import Z500_test
 from Z500.models import Proj_trades_supplier
-from Z500.models import Credit_auth
-from Z500.models import Proj_cust_enterprise_info
-from Z500.models import Proj_cust_enterprise_related_info
-
-
-
 
 from Z500.models import Auth_group
 from Z500.tools.dingtalk import send_notify,send_notify_approve
@@ -111,8 +105,6 @@ def testCheckMiddleCode(request):
 def testPaymentApprove(request):
     return render(request, 'get_paymentApprove.html')
 
-def testCredit(request):
-    return render(request, 'get_credit.html')
 
 
 # 提交后返回页面
@@ -145,10 +137,8 @@ def test_add_pr(request):
     lesaseName = custName + "测试项目"
     node = int(request.GET["node"][-1])
     guarantor = request.GET["guarantor"]
-    trade = int(request.GET["trade"])
     env = request.GET["env"]
     print(env)
-    print(trade)
     # if env == '':
     #     env = 'test'
     if guarantor == '':
@@ -158,7 +148,7 @@ def test_add_pr(request):
     headers_cust = {"AccessToken": res["access_token"]}
     xiaoWei = xiaoWeiNew(headers_cust,env)
 
-    # projectNo = 'PJ202312120036'
+    # projectNo = 'PJ202308210055'
     res = xiaoWei.add_pro(lesaseName)
     projectNo = res["data"]["projectNo"]
     '''征信授权'''
@@ -174,7 +164,7 @@ def test_add_pr(request):
     if node >= 1:
         print("风控预审中")
         '''风控预审'''
-        time.sleep(3)
+        time.sleep(75)
         while True:
             time.sleep(1)
             count = 0
@@ -192,34 +182,17 @@ def test_add_pr(request):
 
 
         '''交易结构'''
-        for i in range (trade):
-            '''交易结构'''
-            res_trade = xiaoWei.projTradeAdd(projectNo)
-            projTradesId = jsonpath.jsonpath(res_trade, '$..id')[0]
-            '''供应商'''
-            xiaoWei.supplierSave(projectNo, custName, env,projTradesId, i)
+        projTrades = []
+        for i in xiaoWei.projTradeAdd(projectNo):
+            projTradesId = jsonpath.jsonpath(i, '$..id')[0]
+            projTrades.append(projTradesId)
+        '''供应商'''
+        xiaoWei.supplierSave(projectNo, custName, env,projTrades[0],projTrades[1],projTrades[2],projTrades[3],projTrades[4],projTrades[5],projTrades[6],projTrades[7],projTrades[8])
+        for i in projTrades:
             '''租赁物'''
-            xiaoWei.leaseSave(projectNo, projTradesId)
+            xiaoWei.leaseSave(projectNo, i)
             '''融资信息'''
-            xiaoWei.rentSave(projectNo, projTradesId)
-
-
-
-        # projTrades = []
-        # for i in xiaoWei.projTradeAdd(projectNo):
-        #     projTradesId = jsonpath.jsonpath(i, '$..id')[0]
-        #     projTrades.append(projTradesId)
-        # '''供应商'''
-        # xiaoWei.supplierSave(projectNo, custName, env,projTrades[0],projTrades[1],projTrades[2],projTrades[3],projTrades[4],projTrades[5],projTrades[6],projTrades[7],projTrades[8])
-        # for i in projTrades:
-        #     '''租赁物'''
-        #     xiaoWei.leaseSave(projectNo, i)
-        #     '''融资信息'''
-        #     xiaoWei.rentSave(projectNo, i)
-
-
-
-
+            xiaoWei.rentSave(projectNo, i)
         '''风险信息'''
         '''评估主体'''
         xiaoWei.evaluationSubjectSave(projectNo)
@@ -297,7 +270,7 @@ def test_add_pr(request):
         # assignee = res_default[0].assignee
 
         if env == 'sit':
-            assignee = "2c9283aa89726143018a266893690073"
+            assignee = "2c92948c892006ed01892a12b9ed0021"
         else:
             assignee = "2c9283aa897261430189fcdbf26c0022"
         print(res_default[0].assignee)
@@ -346,8 +319,7 @@ def test_add_pr(request):
         user = res_msdata_uat[0].USER_ID
 
         xiaoWei.updateHeader(user,env)
-        # taskid = xiaoWei.getPcTask(projectNo)
-        taskid = res_default[0].task_id
+        taskid = xiaoWei.getPcTask(projectNo)
         exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus"]
         detectorCode = "project_credit:auditManagerApprove"
         for i in exec:
@@ -395,7 +367,7 @@ def test_add_pr(request):
 
     result = xiaoWei.result(start_time, projectNo)
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    Z500_test.objects.using("local").create(name = custName, projectNo = projectNo, node = node, env = env , type = '0',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    Z500_test.objects.using("local").create(name = custName, projectNo = projectNo, node = node, type = '0',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     send_notify(env,custName,projectNo)
     return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
     # return HttpResponse(result)
@@ -494,9 +466,9 @@ def testApproveFlow(request):
 
         if env == 'sit' :
             if custName == 'jxw':
-                assignee = "2c9283aa89726143018a266893690073"
+                assignee = "2c92948c892006ed01892a12b9ed0021"
             else :
-                assignee = "2c9283aa88d7ecc00188dbc895c60000"
+                assignee = "2c92948c892006ed01892a38ba6f002a"
         else:
             assignee = "2c9283aa897261430189fcdbf26c0022"
         print(res_default[0].assignee)
@@ -521,31 +493,20 @@ def testApproveFlow(request):
 
     '''风控终审'''
     if node >= 5 and node_before <5:
-        time.sleep(30)
-        # xiaoWei.updateHeader(custName,env)
-        # while True:
-        #     count = 0
-        #     res = xiaoWei.pro_page()
-        #     for i in res["data"]["records"]:
-        #         if i["projectNo"] == projectNo:
-        #             if i["statusName"] == "评审经理审批中":
-        #                 count = 1
-        #                 break;
-        #     if count == 1:
-        #         break;
-        '''评审经理登录'''
-        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
-
-        print(res_default)
+        time.sleep(60)
+        xiaoWei.updateHeader(custName,env)
         while True:
             count = 0
-            print(res_default)
-            if res_default[0].task_name == "评审经理审批":
-                count = 1
+            res = xiaoWei.pro_page()
+            for i in res["data"]["records"]:
+                if i["projectNo"] == projectNo:
+                    if i["statusName"] == "评审经理审批中":
+                        count = 1
+                        break;
             if count == 1:
                 break;
-
-
+        '''评审经理登录'''
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
@@ -554,8 +515,7 @@ def testApproveFlow(request):
         user = res_msdata_uat[0].USER_ID
 
         xiaoWei.updateHeader(user, env)
-        # taskid = xiaoWei.getPcTask(projectNo)
-        taskid = res_default[0].task_id
+        taskid = xiaoWei.getPcTask(projectNo)
         exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus"]
         detectorCode = "project_credit:auditManagerApprove"
         for i in exec:
@@ -597,7 +557,7 @@ def testApproveFlow(request):
 
     result = xiaoWei.result_approve(start_time, projectNo)
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    Z500_test.objects.using("local").create(name = custName, projectNo = projectNo, node = node, env = env, type = '1',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    Z500_test.objects.using("local").create(name = custName, projectNo = projectNo, node = node, type = '1',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     send_notify_approve(env, custName, projectNo)
 
     response = JsonResponse(result, json_dumps_params={'ensure_ascii': False})
@@ -679,7 +639,6 @@ def testContractAdd(request):
     xiaoWei.opinionSumit(taskid)
 
     result = xiaoWei.result_contract(start_time, payMainNo)
-
 
     return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
 
@@ -842,7 +801,7 @@ def testPaymentApproveFlow(request):
     settle_mode = res_settle[0].settle_mode
     print(settle_mode)
 
-    if task_name == "信用审查":
+    if task_name == "信用审查中":
         node_before = 8
     if task_name == "评审经理审批":
         node_before = 8
@@ -859,7 +818,7 @@ def testPaymentApproveFlow(request):
     xiaoWei = xiaoWeiNew(headers_cust, env)
 
 
-    print(node_before)
+
     '''评审经理审批'''
     if node >= 9 and node_before < 9:
         print("信用审查中")
@@ -917,8 +876,6 @@ def testPaymentApproveFlow(request):
 
 
 
-
-
 '''中征码查询'''
 def testMiddleCodeQuery(request):
     list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -939,7 +896,6 @@ def testMiddleCodeQuery(request):
         if res == d:
             # print(code)
             break;
-    Z500_test.objects.using("local").create(  type = '2',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     if d < 10:
         result = {
             # "code": 0,
@@ -953,8 +909,6 @@ def testMiddleCodeQuery(request):
             "data": "中征码："+''.join(code) + str(d)
         }
         print(''.join(code) + str(d))
-
-
         return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
 
 '''中征码校验'''
@@ -977,9 +931,6 @@ def testMiddleCodeCheck(request):
     except:
         return False
     rst = cb2==sl2
-
-    Z500_test.objects.using("local").create(  type = '2',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
     if rst :
         result = {
             "message": "中征码格式正确",
@@ -990,43 +941,6 @@ def testMiddleCodeCheck(request):
             "message": "中征码格式错误",
         }
         return JsonResponse(result)
-
-
-'''征信报告'''
-def testCreditReport(request):
-
-    '''获取项目编号'''
-    projectNo = request.GET["projectNo"].strip()
-    print(projectNo)
-    env = request.GET["env"]
-    print(env)
-
-
-    if env == 'sit':
-        mysql_xiaowei = 'msdata_sit'
-        mysql_ifc = 'ifc_dev'
-    else:
-        mysql_xiaowei = 'msdata_uat'
-        mysql_ifc = 'default'
-
-
-
-    Credit_auth.objects.using(mysql_ifc).filter(credit_customer_type="ENT",project_no = projectNo).update(credit_customer_no='91330203MA2GWEQ46F')
-    Proj_cust_enterprise_info.objects.using(mysql_ifc).filter(project_no = projectNo).update(id_card_no='91330203MA2GWEQ46F')
-
-    Credit_auth.objects.using(mysql_ifc).filter(credit_customer_type="IND",project_no = projectNo).update(credit_customer_no='622926198501293785')
-    Proj_cust_enterprise_related_info.objects.using(mysql_ifc).filter(project_no = projectNo).update(id_card_no='622926198501293785')
-
-
-
-    Z500_test.objects.using("local").create(  type = '3',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
-    result = {
-        "message": "修改成功，可以进入app查看征信报告",
-    }
-    return JsonResponse(result)
-
-
 # def testApproveFlow(request):
 #     test =Z500_test.objects.using("local").create(name='jxw',count="1")
 #     test.save()

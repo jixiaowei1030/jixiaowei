@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>直500</title>
+</head>
+<body>
+
+
+<!--<h4> 直500 </h4>-->
+
+</body>
+</html>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/toastr.min.css' %}">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'css/toastr.min.js' %}"></script>
+
+
+<!--<head>-->
+<!--    <link href="/static/bootstarp/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="/static/bootstrap-select/dist1.12.4/css/bootstrap-select.min.css">-->
+<!--    <script src="/static/bootstarp/jquery/jquery3.2.1.js"></script>-->
+<!--    <script src="/static/bootstarp/js/bootstrap.min.js"></script>-->
+<!--    <script src="/static/bootstrap-select/dist1.12.4/js/bootstrap-select.min.js"></script>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--    <button class="btn btn-info">info</button>-->
+<!--    <button class="btn btn-success">success</button>-->
+<!--    <button class="btn btn-warning">warning</button>-->
+<!--    <button class="btn btn-danger" type="submit" >error</button>-->
+
+
+<!--&lt;!&ndash;    <input type="submit" value="提交">&ndash;&gt;-->
+
+
+<!--</div>-->
+
+
+<!--</body>-->
+
+<!--<script>-->
+<!--    //toastr消息-->
+<!--    $(".btn-info").click(function(){-->
+<!--        toastr.info('info 消息提示')-->
+<!--    });-->
+<!--    $(".btn-success").click(function(){-->
+<!--        toastr.success('操作成功！')-->
+<!--    });-->
+<!--    $(".btn-warning").click(function(){-->
+<!--        toastr.warning('警告内容！')-->
+<!--    });-->
+<!--    $(".btn-danger").click(function(){-->
+<!--        toastr.error('服务器异常！')-->
+<!--        toastr.error('警告内容！')-->
+
+<!--    });-->
+<!--</script>-->
+
+<br><br>
+
+
+    <button id="get_btn" class="btn btn-info">生成中征码</button>
+    <br>
+    <br>
+
+
+    <form action="/checkMiddleCode" method="get">
+    <!--    造数脚本: <input type="text" name="q"> <br>-->
+    <!--    <br>-->
+       <input type="submit" value="校验中征码">
+
+    </form>
+        <br>
+
+
+
+
+<script>
+    $("#get_btn").click(function(){
+<!--        var custName = "jxw"-->
+<!--        var payMainNo = $('input[name="payMainNo"]').val();-->
+<!--        var env = $(".selectenv").val();-->
+<!--        var node = $('input[name="node"]').serialize();-->
+<!--        toastr.success('提交成功,正在执行脚本,请耐心等待,大概5分钟');-->
+        $.ajax({
+            url: "pro/add",
+            type: "GET",  //默认值: "GET"请求方式 ("POST" 或 "GET"),
+<!--            data: {-->
+<!--&lt;!&ndash;                        custName: custName,&ndash;&gt;-->
+<!--&lt;!&ndash;                        payMainNo: payMainNo,&ndash;&gt;-->
+<!--&lt;!&ndash;                        env: env,&ndash;&gt;-->
+<!--&lt;!&ndash;                        node: node&ndash;&gt;-->
+<!--                    },-->
+            dataType:"json",   //服务器返回的类型json,xml,text,html等
+            success: function(result, status, xhr){      // 回调结果，如果成功
+
+                        if(result){    //判断状态码
+                             // code为0，弹出成功提示
+                             alert("生成成功："+JSON.stringify(result))}
+                        else {
+                             alert("查询失败："+JSON.stringify(result))
+                            }
+                    },
+            error: function(result, xhr, status, error) {
+                        alert("接口返回状态："+ status)
+                     }
+            });
+        })
+</script>
+
+
+
+
+
