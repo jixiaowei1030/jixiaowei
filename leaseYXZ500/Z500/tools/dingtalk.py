@@ -8,7 +8,7 @@ def send_notify(env,custName,projectNo):
     url = 'https://oapi.dingtalk.com/robot/send?access_token=%s&timestamp=%s&sign=%s' % (
         token, timestamp, sign)
 
-    tagUserid = {"jxw": "15705101126","xzw":"13623859715","fht": "15705101126","cm": "15705101126","zll": "15705101126"}
+    tagUserid = {"jxw": "15705101126","xzw":"13623859715","fht": "15705101126","cm": "15705101126","zll": "15705101126","ljy": "15705101126"}
     UserIds = []
     UserIds.append(tagUserid[custName])
     headers = {
@@ -32,7 +32,7 @@ def send_notify_approve(env,custName,projectNo):
     url = 'https://oapi.dingtalk.com/robot/send?access_token=%s&timestamp=%s&sign=%s' % (
         token, timestamp, sign)
 
-    tagUserid = {"jxw": "15705101126","xzw":"13623859715","fht": "15705101126","cm": "15705101126","zll": "15705101126"}
+    tagUserid = {"jxw": "15705101126","xzw":"13623859715","fht": "15705101126","cm": "15705101126","zll": "15705101126","ljy": "15705101126"}
     UserIds = []
     UserIds.append(tagUserid[custName])
     headers = {

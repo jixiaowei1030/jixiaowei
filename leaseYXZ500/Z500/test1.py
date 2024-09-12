@@ -151,4 +151,20 @@ import base64
 #
 #
 
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+# print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+print(1.03**204)
+
+# {"id": "10910",
+# "did": "10911",
+# "mid": "10912",
+# "dname": "测试手环3",
+# "assetId": "1733374431032481111",
+# "assetNo": "LH00001098",
+# "assetName": "第一个租赁物",
+# "contract_no": "MSFL-2024-01-0028-Z-001-PH",
+# "atype": "1",
+# "alevel": "1",
+# "adesc": "测试告警推送0119",
+# "atime": "2024-01-19 14:13:28",
+# "no": "10913"
+# }

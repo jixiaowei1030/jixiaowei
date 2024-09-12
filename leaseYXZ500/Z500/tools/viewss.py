@@ -17,6 +17,13 @@ from Z500.models import Proj_trades_supplier
 from Z500.models import Credit_auth
 from Z500.models import Proj_cust_enterprise_info
 from Z500.models import Proj_cust_enterprise_related_info
+from Z500.models import Proj_main_info
+from Z500.models import Proj_cust_personal_info
+from Z500.models import Project_manage
+from Z500.models import Project_manage_group
+from Z500.models import Uaa_user
+
+
 
 
 
@@ -81,17 +88,16 @@ async def main(request):
 
 
 
-# 测试QQ号访问页面
 def testMakeData(request):
     # return HttpResponse("Hello world !  django ~~")
 
-    return render(request, 'get_demo.html')
+    return render(request, 'get_demo_new.html')
 
 def test_qq(request):
     return render(request, 'get_direction.html')
 
 def testApprove(request):
-    return render(request, 'get_demo1.html')
+    return render(request, 'get_approve.html')
 
 def testContract(request):
     return render(request, 'get_contract.html')
@@ -114,6 +120,14 @@ def testPaymentApprove(request):
 def testCredit(request):
     return render(request, 'get_credit.html')
 
+def testToken(request):
+    return render(request, 'get_token.html')
+
+def testId(request):
+    return render(request, 'get_id.html')
+
+def testUser(request):
+    return render(request, 'get_user.html')
 
 # 提交后返回页面
 def result_qq(request):
@@ -133,22 +147,29 @@ def result_qq(request):
 
 
 
-
-
-'''新建Z500项目'''
-def test_add_pr(request):
+'''按细分类型新建Z500项目'''
+def test_add_pro(request):
 
     start_time = time.time()
 
     '''获取客户经理'''
+    enterprise = request.GET["enterprise"].strip()
+    creditcode = request.GET["creditcode"].strip()
+    person = request.GET["person"].strip()
+    creditcodeperson = request.GET["creditcodeperson"].strip()
     custName = request.GET["custName"]
     lesaseName = custName + "测试项目"
     node = int(request.GET["node"][-1])
     guarantor = request.GET["guarantor"]
     trade = int(request.GET["trade"])
     env = request.GET["env"]
+    product = request.GET["product"]
+
     print(env)
     print(trade)
+    print(enterprise)
+    print(creditcode)
+
     # if env == '':
     #     env = 'test'
     if guarantor == '':
@@ -162,7 +183,345 @@ def test_add_pr(request):
     res = xiaoWei.add_pro(lesaseName)
     projectNo = res["data"]["projectNo"]
     '''征信授权'''
-    xiaoWei.creditAuthSave(projectNo,custName,guarantor,env)
+    xiaoWei.creditAuthSave(projectNo,custName,guarantor,env,enterprise,creditcode,person,creditcodeperson)
+    xiaoWei.creditAuthBack(projectNo,custName,guarantor,env)
+
+    '''预审提交'''
+    res = xiaoWei.proSubmit(projectNo,guarantor)
+    taskId = jsonpath.jsonpath(res,'$..taskId')[0]
+    xiaoWei.opinionSumit(taskId)
+
+
+    if node >= 1:
+        print("风控预审中")
+        '''风控预审'''
+        time.sleep(3)
+        while True:
+            time.sleep(1)
+            count = 0
+            res = xiaoWei.pro_page()
+            for i in res["data"]["records"]:
+                if i["projectNo"] == projectNo:
+                    if i["statusName"] == "待授信申请":
+                        count = 1
+                        break;
+            if count == 1:
+                break;
+        '''授信-客户信息'''
+        xiaoWei.custEnterpriseSave(projectNo)
+        xiaoWei.custEnterpriseRelateSave(projectNo,guarantor)
+
+
+        '''交易结构'''
+        for i in range (trade):
+            '''交易结构'''
+            res_trade = xiaoWei.projTradeAdd(projectNo)
+            projTradesId = jsonpath.jsonpath(res_trade, '$..id')[0]
+            '''供应商'''
+            xiaoWei.supplierSave(projectNo, custName, env,projTradesId, i, product)
+            '''租赁物'''
+            xiaoWei.leaseSave(projectNo, projTradesId)
+            '''融资信息'''
+            xiaoWei.rentSave(projectNo, projTradesId)
+
+
+
+        # projTrades = []
+        # for i in xiaoWei.projTradeAdd(projectNo):
+        #     projTradesId = jsonpath.jsonpath(i, '$..id')[0]
+        #     projTrades.append(projTradesId)
+        # '''供应商'''
+        # xiaoWei.supplierSave(projectNo, custName, env,projTrades[0],projTrades[1],projTrades[2],projTrades[3],projTrades[4],projTrades[5],projTrades[6],projTrades[7],projTrades[8])
+        # for i in projTrades:
+        #     '''租赁物'''
+        #     xiaoWei.leaseSave(projectNo, i)
+        #     '''融资信息'''
+        #     xiaoWei.rentSave(projectNo, i)
+
+
+
+
+        '''风险信息'''
+        '''评估主体'''
+        xiaoWei.evaluationSubjectSave(projectNo)
+        '''授信要素'''
+        xiaoWei.creditElementSave(projectNo)
+        '''准入要求'''
+        xiaoWei.accessRquirementSave(projectNo)
+        '''影像信息'''
+        if env == 'sit':
+            file = test_data.file_sit
+        else:
+            file = test_data.file_uat
+        for i in file:
+            xiaoWei.attachmentSave(projectNo,i["fileId"],i["fileName"],i["subCategoryCode"])
+        templateCode = "projectCreditApproval"
+        xiaoWei.attachmentNextStep(projectNo,templateCode)
+        xiaoWei.reqTextSave(projectNo)
+
+    if node >= 2:
+        '''风险探测'''
+        res_taskid = xiaoWei.getPro(projectNo)
+        taskid = jsonpath.jsonpath(res_taskid, '$..taskId')[0]
+        exec = ["authLetterValidDate", "supplierQuota", "antiTerrorism", "relatedPartyQueries", "financingAmount",
+                "projectAmtEvaluateSubject", "totalRecoveryPrincipal", "leaseQuota"]
+        detectorCode = "project_credit:auditApply"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        '''提交审核'''
+        xiaoWei.opinionSumit(taskid)
+
+    if env == 'sit':
+        mysql_xiaowei = 'msdata_sit'
+        mysql_ifc = 'ifc_dev'
+        mysql_vrip = 'vrip_sit'
+
+    else:
+        mysql_xiaowei = 'msdata_uat'
+        mysql_ifc = 'default'
+        mysql_vrip = 'vrip_uat'
+
+    '''业务主管登录'''
+    if node >= 3:
+        '''获取数据库xirr值'''
+        res_sql = Sys_param_config.objects.using(mysql_ifc).filter(config_type="xirr_guidance").all()
+        xirr = float(res_sql[0].config_value)
+        '''获取项目xirr值'''
+        res_xirr = float(xiaoWei.getPro(projectNo)["data"]["projectTotalXirrRate"])
+        print(xirr,res_xirr)
+        if res_xirr > xirr :
+            Sys_param_config.objects.using(mysql_ifc).filter(config_type="xirr_guidance").update(config_value=res_xirr + 0.1)
+        # if res_xirr < xirr:
+        #     Sys_param_config.objects.filter(config_type="xirr_guidance").update(config_value=res_xirr-1)
+
+
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        time.sleep(0.5)
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        time.sleep(0.5)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        xiaoWei.updateHeader(user, env)
+
+        taskid = res_default[0].task_id
+
+
+        # taskid = xiaoWei.getAppTask(projectNo)
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"] :
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+
+        xiaoWei.opinionSumit(taskid)
+
+    '''区域部负责人登录'''
+    if node >= 4:
+        time.sleep(1)
+
+
+        # if env == 'sit':
+        #     assignee = "2c9283aa89726143018a266893690073"
+        # else:
+        #     assignee = "2c9283aa897261430189fcdbf26c0022"
+
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+
+
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        taskid = res_default[0].task_id
+
+        xiaoWei.updateHeader(user,env)
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        exec = ["antiTerrorism","supplierQuotaFreeze","customerPreOperator","supplierBlackAndGreyList","customerTicketLater","supplierTicketLater"]
+        detectorCode = "project_credit:areaManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
+
+
+    '''区域部总监登录'''
+    if node >= 5:
+        time.sleep(1)
+
+
+        # if env == 'sit':
+        #     assignee = "2c9283aa89726143018a266893690073"
+        # else:
+        #     assignee = "2c9283aa897261430189fcdbf26c0022"
+
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+
+
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        taskid = res_default[0].task_id
+
+        xiaoWei.updateHeader(user,env)
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        exec = ["antiTerrorism","supplierQuotaFreeze","customerPreOperator","supplierBlackAndGreyList","customerTicketLater","supplierTicketLater"]
+        detectorCode = "project_credit:areaManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
+
+    '''风控终审'''
+    if node >= 6:
+        print("风控终审")
+        time.sleep(60)
+        xiaoWei.headers = headers_cust
+        while True:
+            count = 0
+            res = xiaoWei.pro_page()
+            for i in res["data"]["records"]:
+                if i["projectNo"] == projectNo:
+                    if i["statusName"] == "评审经理审批中":
+                        count = 1
+                        break;
+            if count == 1:
+                break;
+        '''评审经理登录'''
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        print(res_msdata_uat[0].USER_ID)
+        user = res_msdata_uat[0].USER_ID
+
+        xiaoWei.updateHeader(user,env)
+        # taskid = xiaoWei.getPcTask(projectNo)
+        taskid = res_default[0].task_id
+        exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
+        detectorCode = "project_credit:auditManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
+
+
+    '''评审主管登录'''
+    if node >= 7:
+        time.sleep(1)
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        print(res_msdata_uat[0].USER_ID)
+        user = res_msdata_uat[0].USER_ID
+        xiaoWei.updateHeader(user, env)
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
+        exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
+        detectorCode = "project_credit:auditSupervisorApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
+
+
+
+    '''有权人登录'''
+    if node >= 8:
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        print(res_msdata_uat[0].USER_ID)
+        user = res_msdata_uat[0].USER_ID
+        xiaoWei.updateHeader(user, env)
+
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
+
+        xiaoWei.opinionSumit(taskid)
+
+
+
+
+    result = xiaoWei.result(start_time, projectNo)
+    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    Z500_test.objects.using("local").create(name = custName, projectNo = projectNo, node = node, env = env , type = '0',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    send_notify(env,custName,projectNo)
+    return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
+    # return HttpResponse(result)
+
+
+'''新建Z500项目'''
+def test_add_pr(request):
+
+    start_time = time.time()
+
+    '''获取客户经理'''
+    enterprise = request.GET["enterprise"].strip()
+    creditcode = request.GET["creditcode"].strip()
+    person = request.GET["person"].strip()
+    creditcodeperson = request.GET["creditcodeperson"].strip()
+    custName = request.GET["custName"]
+    lesaseName = custName + "测试项目"
+    node = int(request.GET["node"][-1])
+    guarantor = request.GET["guarantor"]
+    trade = int(request.GET["trade"])
+    env = request.GET["env"]
+    print(env)
+    print(trade)
+    print(enterprise)
+    print(creditcode)
+
+    # if env == '':
+    #     env = 'test'
+    if guarantor == '':
+        guarantor = '2'
+    '''登录'''
+    res = login(custName,env)
+    headers_cust = {"AccessToken": res["access_token"]}
+    xiaoWei = xiaoWeiNew(headers_cust,env)
+
+    # projectNo = 'PJ202312120036'
+    res = xiaoWei.add_pro(lesaseName)
+    projectNo = res["data"]["projectNo"]
+    '''征信授权'''
+    xiaoWei.creditAuthSave(projectNo,custName,guarantor,env,enterprise,creditcode,person,creditcodeperson)
     xiaoWei.creditAuthBack(projectNo,custName,guarantor,env)
 
     '''预审提交'''
@@ -253,9 +612,12 @@ def test_add_pr(request):
     if env == 'sit':
         mysql_xiaowei = 'msdata_sit'
         mysql_ifc = 'ifc_dev'
+        mysql_vrip = 'vrip_sit'
+
     else:
         mysql_xiaowei = 'msdata_uat'
         mysql_ifc = 'default'
+        mysql_vrip = 'vrip_uat'
 
     '''业务主管登录'''
     if node >= 3:
@@ -275,12 +637,20 @@ def test_add_pr(request):
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        time.sleep(0.5)
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        time.sleep(0.5)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
 
         xiaoWei.updateHeader(user, env)
-        taskid = xiaoWei.getAppTask(projectNo)
+
+        taskid = res_default[0].task_id
+
+
+        # taskid = xiaoWei.getAppTask(projectNo)
 
         # res = xiaoWei.todoListApp()
         # for i in res["content"] :
@@ -292,37 +662,85 @@ def test_add_pr(request):
 
     '''区域部负责人登录'''
     if node >= 4:
+        time.sleep(1)
+
+
+        # if env == 'sit':
+        #     assignee = "2c9283aa89726143018a266893690073"
+        # else:
+        #     assignee = "2c9283aa897261430189fcdbf26c0022"
 
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
-        # assignee = res_default[0].assignee
+        assignee = res_default[0].assignee
 
-        if env == 'sit':
-            assignee = "2c9283aa89726143018a266893690073"
-        else:
-            assignee = "2c9283aa897261430189fcdbf26c0022"
+
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        taskid = res_default[0].task_id
 
         xiaoWei.updateHeader(user,env)
-        res = xiaoWei.todoListApp()
-        for i in res["content"]:
-            if i["businessKey"] == projectNo:
-                taskid = i["id"]
-                break;
-        exec = ["antiTerrorism"]
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        exec = ["antiTerrorism","supplierQuotaFreeze","customerPreOperator","supplierBlackAndGreyList","customerTicketLater","supplierTicketLater"]
         detectorCode = "project_credit:areaManagerApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
         xiaoWei.opinionSumit(taskid)
 
+    '''区域总监登录'''
+    if node >= 5:
+        time.sleep(1)
 
+        # if env == 'sit':
+        #     assignee = "2c9283aa89726143018a266893690073"
+        # else:
+        #     assignee = "2c9283aa897261430189fcdbf26c0022"
 
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        taskid = res_default[0].task_id
+
+        xiaoWei.updateHeader(user, env)
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        exec = ["antiTerrorism", "supplierQuotaFreeze", "customerPreOperator", "supplierBlackAndGreyList",
+                "customerTicketLater", "supplierTicketLater"]
+        detectorCode = "project_credit:areaManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
 
     '''风控终审'''
-    if node >= 5:
+    if node >= 6:
         print("风控终审")
         time.sleep(60)
         xiaoWei.headers = headers_cust
@@ -348,7 +766,7 @@ def test_add_pr(request):
         xiaoWei.updateHeader(user,env)
         # taskid = xiaoWei.getPcTask(projectNo)
         taskid = res_default[0].task_id
-        exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus"]
+        exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
         detectorCode = "project_credit:auditManagerApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
@@ -356,7 +774,7 @@ def test_add_pr(request):
 
 
     '''评审主管登录'''
-    if node >= 6:
+    if node >= 7:
         time.sleep(1)
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
         assignee = res_default[0].assignee
@@ -366,8 +784,10 @@ def test_add_pr(request):
         print(res_msdata_uat[0].USER_ID)
         user = res_msdata_uat[0].USER_ID
         xiaoWei.updateHeader(user, env)
-        taskid = xiaoWei.getPcTask(projectNo)
-        exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus"]
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
+        exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
         detectorCode = "project_credit:auditSupervisorApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
@@ -376,7 +796,7 @@ def test_add_pr(request):
 
 
     '''有权人登录'''
-    if node >= 7:
+    if node >= 8:
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
@@ -386,7 +806,9 @@ def test_add_pr(request):
         user = res_msdata_uat[0].USER_ID
         xiaoWei.updateHeader(user, env)
 
-        taskid = xiaoWei.getPcTask(projectNo)
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
 
         xiaoWei.opinionSumit(taskid)
 
@@ -400,27 +822,36 @@ def test_add_pr(request):
     return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
     # return HttpResponse(result)
 
+
 '''已有项目审批'''
 def testApproveFlow(request):
 
     start_time = time.time()
 
-
-    '''获取项目编号'''
-    projectNo = request.GET["projectNo"].strip()
-    print(projectNo)
-    custName = request.GET["custName"]
     node = int(request.GET["node"][-1])
     env = request.GET["env"]
     print(env)
 
-
     if env == 'sit':
         mysql_xiaowei = 'msdata_sit'
         mysql_ifc = 'ifc_dev'
+        mysql_vrip = 'vrip_sit'
     else:
         mysql_xiaowei = 'msdata_uat'
         mysql_ifc = 'default'
+        mysql_vrip = 'vrip_uat'
+
+    '''获取项目编号'''
+    projectNo = request.GET["projectNo"].strip()
+    print(projectNo)
+
+    projectNo_update = projectNo[:14]
+    print(projectNo_update)
+
+    '''获取项目对应创建人'''
+    res_proj = Proj_main_info.objects.using(mysql_ifc).filter(project_no=projectNo_update).all()
+    custName = res_proj[0].creator_id
+    # custName = request.GET["custName"]
 
 
     res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
@@ -430,12 +861,16 @@ def testApproveFlow(request):
         node_before = 2
     if task_name == "区域部负责人" or task_name == "区域部负责人审批":
         node_before = 3
+    if task_name == "区域总监" or task_name == "区域总监审批":
+        node_before = 4
     if task_name == "风控终审":
-        node_before = 4
-    if task_name == "评审经理审批":
-        node_before = 4
-    if task_name == "评审主管审批":
         node_before = 5
+    if task_name == "评审经理审批":
+        node_before = 6
+    if task_name == "评审主管审批":
+        node_before = 7
+    if task_name == "评审总监审批":
+        node_before = 8
 
 
     # res_ifc = Z500_test.objects.using("local").filter(projectNo = projectNo).all()
@@ -454,9 +889,14 @@ def testApproveFlow(request):
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+        time.sleep(1)
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
 
         xiaoWei.updateHeader(user,env)
 
@@ -465,7 +905,9 @@ def testApproveFlow(request):
         # xiaoWei = xiaoWeiNew(headers_cust, env)
         #
         # # xiaoWei.updateHeader(user, env)
-        taskid = xiaoWei.getAppTask(projectNo)
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getAppTask(projectNo)
 
         '''获取数据库xirr值'''
         res_sql = Sys_param_config.objects.using(mysql_ifc).filter(config_type="xirr_guidance").all()
@@ -482,6 +924,11 @@ def testApproveFlow(request):
         #     if i["businessKey"] == projectNo:
         #         taskid = i["id"]
         #         break;
+        exec = ["antiTerrorism", "supplierQuotaFreeze", "customerPreOperator", "supplierBlackAndGreyList",
+                "customerTicketLater", "supplierTicketLater"]
+        detectorCode = "project_credit:areaManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
 
         xiaoWei.opinionSumit(taskid)
 
@@ -489,38 +936,105 @@ def testApproveFlow(request):
     '''区域部负责人登录'''
     if node >= 4 and node_before <4 :
 
-        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
-        # assignee = res_default[0].assignee
+        time.sleep(3)
 
-        if env == 'sit' :
-            if custName == 'jxw':
-                assignee = "2c9283aa89726143018a266893690073"
-            else :
-                assignee = "2c9283aa88d7ecc00188dbc895c60000"
-        else:
-            assignee = "2c9283aa897261430189fcdbf26c0022"
+        # if env == 'sit' :
+        #     if custName == 'jxw':
+        #         assignee = "2c9283aa89726143018a266893690073"
+        #     else :
+        #         assignee = "2c9283aa88d7ecc00188dbc895c60000"
+        # else:
+        #     assignee = "2c9283aa89726143018a266893690073"    # jxw
+
+
+
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+
+
         print(res_default[0].assignee)
         print(res_default[0].task_id)
         print(mysql_xiaowei)
         print(assignee)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        time.sleep(1)
+        print(res_vrip)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
 
         xiaoWei.updateHeader(user,env)
-        res = xiaoWei.todoListApp()
-        for i in res["content"]:
-            if i["businessKey"] == projectNo:
-                taskid = i["id"]
-                break;
-        exec = ["antiTerrorism"]
+
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        time.sleep(1)
+
+
+        taskid = res_default[0].task_id
+
+        exec = ["antiTerrorism","supplierQuotaFreeze","customerPreOperator","supplierBlackAndGreyList","customerTicketLater","supplierTicketLater"]
+        detectorCode = "project_credit:areaManagerApprove"
+        for i in exec:
+            xiaoWei.detectorExec(i, taskid, detectorCode)
+        xiaoWei.opinionSumit(taskid)
+
+    '''区域总监登录'''
+    if node >= 5 and node_before < 5:
+
+        time.sleep(3)
+
+        # if env == 'sit' :
+        #     if custName == 'jxw':
+        #         assignee = "2c9283aa89726143018a266893690073"
+        #     else :
+        #         assignee = "2c9283aa88d7ecc00188dbc895c60000"
+        # else:
+        #     assignee = "2c9283aa89726143018a266893690073"    # jxw
+
+        res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
+        assignee = res_default[0].assignee
+
+        print(res_default[0].assignee)
+        print(res_default[0].task_id)
+        print(mysql_xiaowei)
+        print(assignee)
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        time.sleep(1)
+        print(res_vrip)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
+        xiaoWei.updateHeader(user, env)
+
+        # res = xiaoWei.todoListApp()
+        # for i in res["content"]:
+        #     if i["businessKey"] == projectNo:
+        #         taskid = i["id"]
+        #         break;
+        time.sleep(1)
+
+        taskid = res_default[0].task_id
+
+        exec = ["antiTerrorism", "supplierQuotaFreeze", "customerPreOperator", "supplierBlackAndGreyList",
+                "customerTicketLater", "supplierTicketLater"]
         detectorCode = "project_credit:areaManagerApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
         xiaoWei.opinionSumit(taskid)
 
     '''风控终审'''
-    if node >= 5 and node_before <5:
+    if node >= 6 and node_before <6:
         time.sleep(30)
         # xiaoWei.updateHeader(custName,env)
         # while True:
@@ -535,13 +1049,14 @@ def testApproveFlow(request):
         #         break;
         '''评审经理登录'''
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
-
-        print(res_default)
+        print("风控终审中")
         while True:
             count = 0
-            print(res_default)
-            if res_default[0].task_name == "评审经理审批":
-                count = 1
+            try:
+                if res_default[0].task_name == "评审经理审批":
+                    count = 1
+            except:
+                pass;
             if count == 1:
                 break;
 
@@ -549,49 +1064,72 @@ def testApproveFlow(request):
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
 
         xiaoWei.updateHeader(user, env)
         # taskid = xiaoWei.getPcTask(projectNo)
         taskid = res_default[0].task_id
-        exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus"]
+        exec = ["supplierBlackAndGreyList", "antiTerrorism","supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
         detectorCode = "project_credit:auditManagerApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
         xiaoWei.opinionSumit(taskid)
 
     '''评审主管登录'''
-    if node >= 6 and node_before <6:
+    if node >= 7 and node_before <7:
         time.sleep(1)
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip)
+        time.sleep(1)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
         xiaoWei.updateHeader(user, env)
-        taskid = xiaoWei.getPcTask(projectNo)
-        exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus"]
+
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
+        exec = ["supplierBlackAndGreyList", "antiTerrorism", "supplierFrozenStatus","supplierQuotaFreeze","customerPreOperator","customerTicketLater","supplierTicketLater"]
         detectorCode = "project_credit:auditSupervisorApprove"
         for i in exec:
             xiaoWei.detectorExec(i, taskid, detectorCode)
         xiaoWei.opinionSumit(taskid)
 
     '''有权人登录'''
-    if node >= 7 and node_before <7:
+    if node >= 8 and node_before <8:
         res_default = Biz_flow_info.objects.using(mysql_ifc).filter(business_key=projectNo).all()
         assignee = res_default[0].assignee
         print(res_default[0].assignee)
         print(res_default[0].task_id)
-        res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
-        print(res_msdata_uat[0].USER_ID)
-        user = res_msdata_uat[0].USER_ID
+        # res_msdata_uat = Auth_user_sync_record.objects.using(mysql_xiaowei).filter(UC_SYNC_ID=assignee).all()
+        # print(res_msdata_uat[0].USER_ID)
+        # user = res_msdata_uat[0].USER_ID
+
+        res_vrip = Uaa_user.objects.using(mysql_vrip).filter(id=assignee).all()
+        print(res_vrip)
+        print(res_vrip[0].login)
+        user = res_vrip[0].login
+
         xiaoWei.updateHeader(user, env)
 
-        taskid = xiaoWei.getPcTask(projectNo)
+        taskid = res_default[0].task_id
+
+        # taskid = xiaoWei.getPcTask(projectNo)
 
         xiaoWei.opinionSumit(taskid)
 
@@ -917,8 +1455,6 @@ def testPaymentApproveFlow(request):
 
 
 
-
-
 '''中征码查询'''
 def testMiddleCodeQuery(request):
     list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -1017,6 +1553,7 @@ def testCreditReport(request):
     Credit_auth.objects.using(mysql_ifc).filter(credit_customer_type="IND",project_no = projectNo).update(credit_customer_no='622926198501293785')
     Proj_cust_enterprise_related_info.objects.using(mysql_ifc).filter(project_no = projectNo).update(id_card_no='622926198501293785')
 
+    Proj_cust_personal_info.objects.using(mysql_ifc).filter(project_no = projectNo).update(id_card_no='622926198501293785')
 
 
     Z500_test.objects.using("local").create(  type = '3',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -1024,6 +1561,97 @@ def testCreditReport(request):
     result = {
         "message": "修改成功，可以进入app查看征信报告",
     }
+    return JsonResponse(result)
+
+
+'''获取token'''
+def testGetToken(request):
+
+
+    custName = request.GET["custName"]
+
+    env = request.GET["env"]
+    print(env)
+
+    '''登录'''
+    res = login(custName, env)
+    headers_cust = {"AccessToken": "access_token=%s" % res["access_token"]}
+    Z500_test.objects.using("local").create(  type = '4',create_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    return JsonResponse(headers_cust)
+
+'''获取小微项目编号'''
+def testGetId(request):
+    '''获取小微项目编号'''
+    SOURCE_SYS_RELA_NO = request.GET["projectNo"]
+
+    env = request.GET["env"]
+    print(SOURCE_SYS_RELA_NO,env)
+
+    if env == 'sit':
+        mysql_xiaowei = 'msdata_sit'
+        mysql_ifc = 'ifc_dev'
+    else:
+        mysql_xiaowei = 'msdata_uat'
+        mysql_ifc = 'default'
+
+    PROJECT_GROUP_ID =Project_manage_group.objects.using(mysql_xiaowei).filter(SOURCE_SYS_RELA_NO=SOURCE_SYS_RELA_NO,EFFECT_STATUS = "Y")
+    print(PROJECT_GROUP_ID[0].PROJECT_GROUP_ID)
+
+    PROJECT_NO = Project_manage.objects.using(mysql_xiaowei).filter(PROJECT_GROUP_ID=PROJECT_GROUP_ID[0].PROJECT_GROUP_ID)
+
+    print(PROJECT_NO[0].PROJECT_NO)
+    result = {
+        "PROJECT_NO": PROJECT_NO[0].PROJECT_NO,
+    }
+
+    return JsonResponse(result)
+
+'''获取vrip用户'''
+def testGetUser(request):
+
+    env = request.GET["env"]
+    user = request.GET["user"]
+    '''登录'''
+    res = login("jxw", env)
+    headers_cust = {"AccessToken": res["access_token"]}
+    xiaoWei = xiaoWeiNew(headers_cust, env)
+    res = xiaoWei.searchUser(user)
+    list = []
+
+    print(len(res["content"]))
+    for i in range(len(res["content"])) :
+        result = {
+            "login": res["content"][i]["login"],
+            "name": res["content"][i]["name"],
+            "mobile": res["content"][i]["mobile"],
+            "id": res["content"][i]["id"],
+        }
+        list.append(result)
+    result = {
+        "content": list
+    }
+    return JsonResponse(result)
+
+
+'''重置密码'''
+def testRestPass(request):
+
+    env = request.GET["env"]
+    user = request.GET["user"]
+    '''登录'''
+    res = login("jxw", env)
+    headers_cust = {"AccessToken": res["access_token"]}
+    xiaoWei = xiaoWeiNew(headers_cust, env)
+    res = xiaoWei.resetPassword(user)
+    print(res.status_code)
+    if res.status_code == 200 :
+        result = {
+            "content": "重置密码成功"
+        }
+    else:
+        result = {
+            "content": "重置密码失败"
+        }
     return JsonResponse(result)
 
 
@@ -1054,5 +1682,4 @@ def testCreditReport(request):
 #     collect_logger.info("用户1:河南")
 #
 #     return HttpResponse("OK")
-
 

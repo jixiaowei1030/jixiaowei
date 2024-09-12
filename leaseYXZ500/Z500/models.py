@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -73,6 +73,16 @@ class Pay_main_info(models.Model):
         db_table = "pay_main_info"
 
 
+class Proj_main_info(models.Model):
+
+    project_no = models.CharField(max_length=20)
+    creator_id = models.CharField(max_length=20)
+
+
+    class Meta:
+        managed = False
+        db_table = "proj_main_info"
+
 
 class Proj_trades_supplier(models.Model):
     project_no = models.CharField(max_length=20)
@@ -110,6 +120,49 @@ class Proj_cust_enterprise_related_info(models.Model):
     class Meta:
         managed = False
         db_table = "Proj_cust_enterprise_related_info"
+
+
+class Proj_cust_personal_info(models.Model):
+    '''项目-个人信息表'''
+    id_card_no = models.CharField(max_length=20)
+    project_no = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = "Proj_cust_personal_info"
+
+class Project_manage(models.Model):
+    '''项目管理'''
+    PROJECT_MANAGE_ID = models.CharField(max_length=20,primary_key=True)
+    PROJECT_NO = models.CharField(max_length=20)
+    PROJECT_GROUP_ID = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = "Project_manage"
+
+
+class Project_manage_group(models.Model):
+    '''项目管理组(多交易结构)'''
+    PROJECT_GROUP_ID = models.CharField(max_length=20,primary_key=True)
+    SOURCE_SYS_RELA_NO = models.CharField(max_length=20)
+    EFFECT_STATUS = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = "Project_manage_group"
+
+class Uaa_user(models.Model):
+    '''用户表'''
+    id = models.CharField(max_length=20,primary_key=True)
+    login = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = "Uaa_user"
+
+
+
 #
 # class Teacher(models.Model):
 #     name = models.CharField(max_length=30)
@@ -120,4 +173,21 @@ class Proj_cust_enterprise_related_info(models.Model):
 #         managed = False
 #         # app_label = "xiaowei_uat"
 #         db_table = "Teacher"
+
+class MeetingRoom(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    capacity = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Reservation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    room = models.ForeignKey(MeetingRoom, on_delete=models.CASCADE)
+    date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+    def __str__(self):
+        return f"{self.room} - {self.date} {self.start_time}-{self.end_time}"
 

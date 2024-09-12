@@ -22,8 +22,10 @@ class xiaoWeiNew():
     def __init__(self, headers, env):
         if env == 'sit':
             self.url = 'https://sit-vrip.msfl.com.cn/'
-        else:
-            self.url = 'https://test-vrip.msfl.com.cn/'
+        elif env == 'test':
+            self.url = 'http://test-vrip.msfl.com.cn/'
+        elif env == 'uat':
+            self.url = 'http://uat-vrip.msfl.com.cn/'
         self.headers = headers
         self.req = requests.session()
         self.req_again = requests.session()
@@ -99,7 +101,7 @@ class xiaoWeiNew():
         res = self.api(method ="GET", url=url)
         return res
 
-    def creditAuthSave(self,projectNo,custName,guarantor,env):
+    def creditAuthSave(self,projectNo,custName,guarantor,env,enterprise,creditcode,person,creditcodeperson):
         '''创建征信授权'''
         if env == 'sit':
             url = 'https://sit-asp.msfl.com.cn/asp/ifc/notice/credit-auth/save'
@@ -111,7 +113,7 @@ class xiaoWeiNew():
         req.mount('http://', HTTPAdapter(max_retries=retries))
         req.mount('https://', HTTPAdapter(max_retries=retries))
 
-        data = test_data.getAuthData(projectNo,custName,guarantor)
+        data = test_data.getAuthData(projectNo,custName,guarantor,enterprise,creditcode,person,creditcodeperson)
         for i in data:
             try:
                 res = req.request(method='POST', url=url, json=i,verify=False, headers=self.headers)
@@ -439,7 +441,8 @@ class xiaoWeiNew():
                 "holdingType": ["A", "A01", "A0101"],
                 "isRefinedNew": "002",
                 "isHighTechEnterprise": "Y",
-                "isDownLoan": "Y"
+                "isDownLoan": "Y",
+                "taxLevel": "A"
             }
         res = self.api(method = 'POST', url =url,json = data)
 
@@ -553,6 +556,8 @@ class xiaoWeiNew():
                     "name": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].name')[0],
                     "mobile": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].mobile')[0],
                     "email": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].email')[0],
+                    "guarantorRelation":"Other",
+                    "guarantorRelationName":None,
                     "customerId": None,
                     "roleType": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].roleType')[0],
                     "roleTypeName": None,
@@ -588,16 +593,17 @@ class xiaoWeiNew():
                     "residenceAddress": None,
                     "creditReportTime": None,
                     "authId": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].authId')[0],
-                    "idProvince": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idProvince')[0],
-                    "idProvinceName": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idProvinceName')[0],
-                    "idCity": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idCity')[0],
-                    "idCityName": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idCityName')[0],
+                    "idProvince": "110000",
+                    "idProvinceName": None,
+                    "idCity": "110100",
+                    "idCityName": None,
                     "annualIncomeFamily": None,
                     "projectCustomerInfoId":  jsonpath.jsonpath(res_query,'$..personalInfoModels[0].projectCustomerInfoId')[0],
-                    "certificateValidStartDate":  jsonpath.jsonpath(res_query,'$..personalInfoModels[0].certificateValidStartDate')[0],
-                    "certificateValidEndDate": jsonpath.jsonpath(res_query,'$..personalInfoModels[0].certificateValidEndDate')[0],
+                    "certificateValidStartDate":  "2023-12-25",
+                    "certificateValidEndDate": "2099-12-31",
                     "industryExperYears": None,
-                    "idArray": [jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idProvince')[0], jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idCity')[0], jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idLocation')[0]]
+                    "idArray": ["110000", "110100", "110101"],
+                    # "idArray": [jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idProvince')[0], jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idCity')[0], jsonpath.jsonpath(res_query,'$..personalInfoModels[0].idLocation')[0]]
                 }],
                 "projCustEnterpriseVMList":[]
             }
@@ -718,11 +724,12 @@ class xiaoWeiNew():
                         #     "110100",
                         #     "110101"
                         # ],
-                        "idArray": [jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idProvince')[0],
-                                    jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idCity')[0],
-                                    jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idLocation')[0]],
-                        "certificateValidStartDate": "2023-12-25",
-                        "certificateValidEndDate": "2099-12-31"
+                        "idArray": ["110000", "110100", "110101"],
+                        # "idArray": [jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idProvince')[0],
+                        #             jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idCity')[0],
+                        #             jsonpath.jsonpath(res_query, '$..personalInfoModels[0].idLocation')[0]],
+                        # "certificateValidStartDate": "2023-12-25",
+                        # "certificateValidEndDate": "2099-12-31"
                     }
                 ],
                 "projCustEnterpriseVMList":[
@@ -1738,12 +1745,12 @@ class xiaoWeiNew():
 
     '''供应商保存'''
 
-    def supplierSave(self, projectNo, custName, env, projTradesId, count):
+    def supplierSave(self, projectNo, custName, env, projTradesId, count,product):
         if custName == 'ph_sd':
             custName = 'jxw'
         url = 'ifc/api/credit-apply/trades/saveSupplier'
 
-        data = test_data.getSupplier(projectNo, custName, env, projTradesId)
+        data = test_data.getSupplier(projectNo, custName, env, projTradesId,product)
 
 
         res = self.api(method='POST', url=url, json=data[count])
@@ -2785,6 +2792,12 @@ class xiaoWeiNew():
         return  res
 
 
+    def searchUser(self,user):
+        '''vrip查询用户信息'''
+        url = 'uaa/api/users/search?content=%s&size=20&page=0'%user
+        res = self.api(method='GET', url=url)
+        return res
+
     def check(self,payInfoNo):
         res = self.signatoryQuery(payInfoNo)
         print(len(jsonpath.jsonpath(res,'$..contracts')[0]))
@@ -2795,7 +2808,11 @@ class xiaoWeiNew():
         assert len(jsonpath.jsonpath(res,'$..contracts')[2]) == 5
 
 
-
+    def resetPassword(self, user):
+        '''vrip重置密码'''
+        url = 'uaa/api/user/resetPassword/%s' %user
+        res = self.req.request(method='Post',url=(self.url+url), verify=False, headers=self.headers)
+        return res
 
 if __name__ == "__main__":
 

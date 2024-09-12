@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'leaseYXZ500.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ifc_test',
+        'NAME': 'ifc_uat',
         'USER': 'root',
         'PASSWORD': 'Amars0ft@',
         'HOST':'172.16.92.47',
@@ -114,7 +114,7 @@ DATABASES = {
     },
     'msdata_uat': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'msdata_uat_ronghe',  # mysql中的库名
+        'NAME': 'msdata_uat',  # mysql中的库名
         'USER': 'root',
         'PASSWORD': 'Amars0ft@',
         'HOST':'172.16.92.47',
@@ -127,6 +127,22 @@ DATABASES = {
         'PASSWORD': 'root',
         'HOST':'172.28.160.226',
         'PORT':'3306',
+    },
+    'vrip_sit': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sit_uaa',  # mysql中的库名
+        'USER': 'sit_vrip_mysql',
+        'PASSWORD': 'xQ%znnhh#9^83*L%',
+        'HOST':'172.16.90.142',
+        'PORT':'3306',
+    },
+    'vrip_uat': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test_uaa',  # mysql中的库名
+        'USER': 'test_mysql_w',
+        'PASSWORD': 'IDkmJLq9nvnaKCt4',
+        'HOST':'172.18.3.41',
+        'PORT':'3307',
     }
 }
 #

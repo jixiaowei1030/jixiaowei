@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32c2e030-3a39-4650-a907-e153b74ce891" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_demo_new.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_id.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_token.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/testMiddleCode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/meeting_room_reservation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservations/templates/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservations/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reservations/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/common/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/common/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_credit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_credit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_demo1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_approve.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_direction.html" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/templates/get_direction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/dingtalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/dingtalk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/test_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/test_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/viewss.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/viewss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/xiaoWeiNew.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/Z500/tools/xiaoWeiNew.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/leaseYXZ500/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/leaseYXZ500/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leaseYXZ500/leaseYXZ500/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../leaseYXZ500/leaseYXZ500/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/meeting_room_reservation/urls.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2lpIKaiORpBNzQrVHDucqLz2Ehb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/86157/PycharmProjects/git/BookSystem",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32c2e030-3a39-4650-a907-e153b74ce891" name="Changes" comment="" />
+      <created>1725870527456</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725870527456</updated>
+    </task>
+    <servers />
+  </component>
+</project>

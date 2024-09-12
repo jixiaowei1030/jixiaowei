@@ -22,8 +22,6 @@ from Z500.tools import viewss
 from . import  testdb
 
 
-from . import view
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^ifc/index$', views.index),
@@ -32,7 +30,7 @@ urlpatterns = [
     re_path(r'^paymentApprove/pro/add$', viewss.testPaymentApproveFlow),
     re_path(r'^paymentApprove/', viewss.testPaymentApprove),
 
-    re_path(r'^data/pro/add$', viewss.test_add_pr),
+    re_path(r'^data/pro/add$', viewss.test_add_pro),
     re_path(r'^data/', viewss.testMakeData),
     re_path('^demo$', views.demo),
     re_path(r'^ifc/', viewss.test_qq),
@@ -47,6 +45,15 @@ urlpatterns = [
     re_path(r'^checkMiddleCode/', viewss.testCheckMiddleCode),
     re_path(r'^credit/pro/add$', viewss.testCreditReport),
     re_path(r'^credit/', viewss.testCredit),
+    re_path(r'^token/pro/add$', viewss.testGetToken),
+    re_path(r'^token/', viewss.testToken),
+
+    re_path(r'^id/pro/add$', viewss.testGetId),
+    re_path(r'^id/', viewss.testId),
+
+    re_path(r'^user/pro/add2$', viewss.testRestPass),
+    re_path(r'^user/pro/add$', viewss.testGetUser),
+    re_path(r'^user/', viewss.testUser),
 
     # re_path(r'^pro/add', views.add_pr),
     # re_path(r'^pro/submit', views.proSubmit),

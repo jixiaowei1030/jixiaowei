@@ -65,14 +65,14 @@
 <div class="container">
 
 <!--    客户经理: <input type="text" name="custName"> <br>-->
-    <th><label for="id_custName">客户经理:</label></th>
-    <select class="selectcust" title="请选择">
-        <option value="jxw" title="jxw">jxw</option>
-        <option value="xzw" title="xzw">xzw</option>
-        <option value="cm" title="cm">cm</option>
-        <option value="fht" title="fht">fht</option>
-        <option value="zll" title="zll">zll</option>
-    </select><br><br>
+<!--    <th><label for="id_custName">客户经理:</label></th>-->
+<!--    <select class="selectcust" title="请选择">-->
+<!--        <option value="jxw" title="jxw">jxw</option>-->
+<!--        <option value="xzw" title="xzw">xzw</option>-->
+<!--        <option value="cm" title="cm">cm</option>-->
+<!--        <option value="fht" title="fht">fht</option>-->
+<!--        <option value="zll" title="zll">zll</option>-->
+<!--    </select><br><br>-->
 
 
 
@@ -80,12 +80,11 @@
 
     <th><label for="id_env">测试环境:</label></th>
     <select class="selectenv" title="请选择">
+        <option value="test" title="test">uat</option>
         <option value="sit" title="sit">sit</option>
-        <option value="test" title="test">test</option>
-        <option value="uat" title="uat">uat</option>
     </select><br>
 
-    <p> 合同编号：<input type="text" name="payMainNo"> 此项目已授信审批通过且无担保方</p>
+    <p> 项目编号：<input type="text" name="projectNo"> </p>
 
 <!--    <th><label for="id_guarantor">是否需要担保方:</label></th>-->
 <!--    <select class="selectguarantor" title="请选择">-->
@@ -137,24 +136,20 @@
 
 <script>
     $("#get_btn").click(function(){
-        var custName = $(".selectcust").val();
-        var payMainNo = $('input[name="payMainNo"]').val();
+        var projectNo = $('input[name="projectNo"]').val();
         var env = $(".selectenv").val();
-<!--        var node = $('input[name="node"]').serialize();-->
-        toastr.success('提交成功,正在执行脚本,请耐心等待,大概5分钟');
+<!--        toastr.success('提交成功,正在执行脚本,请耐心等待,大概5分钟');-->
         $.ajax({
             url: "pro/add",
             type: "GET",  //默认值: "GET"请求方式 ("POST" 或 "GET")
             data: {
-                        custName: custName,
-                        payMainNo: payMainNo,
+                        projectNo: projectNo,
                         env: env,
-<!--                        node: node-->
                     },
             dataType:"json",   //服务器返回的类型json,xml,text,html等
             success: function(result, status, xhr){      // 回调结果，如果成功
 
-                        if(result.code == 0){    //判断状态码
+                        if(result){    //判断状态码
                              // code为0，弹出成功提示
                              alert("请求成功："+JSON.stringify(result))}
                         else {
